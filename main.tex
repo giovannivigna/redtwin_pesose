@@ -1,0 +1,150 @@
+%% RedTwin: AI-Enabled Digital Twins for Continuous Red Teaming of
+%% Open-Source Ecosystems
+%%
+%% NSF 26-506 (PESOSE), Track 3: Improving safety, security, and privacy.
+%% Project Description.
+%%
+%% Compile with: pdflatex main.tex; bibtex main; pdflatex main.tex; pdflatex main.tex
+%%
+%% COMPLIANCE NOTES (NSF 26-506 + PAPPG 24-1):
+%%   - Project Description limit for Track 3 is 15 pages, INCLUDING Results
+%%     from Prior NSF Support. Check the page count after every edit.
+%%   - NO URLs are permitted in the Project Description. Cite the open-source
+%%     products via References Cited instead (PAPPG II.D.2.d(ii)).
+%%   - Margins must be at least 1 inch on all sides, with no proposer-supplied
+%%     information in the margins. No page numbers are printed, since
+%%     Research.gov stamps its own.
+%%   - Run `make check` (or see the note at the end of this file) to verify.
+
+\documentclass[11pt,letterpaper]{article}
+
+%% ---- NSF page geometry: 1-inch margins on all sides ----
+%% No page numbers are printed: Research.gov stamps its own, and PAPPG II.C.2.c
+%% forbids proposer-supplied information in the margins.
+\usepackage[letterpaper,margin=1in,heightrounded,
+            headheight=0pt,headsep=0pt,footskip=0pt]{geometry}
+
+%% ---- Core packages ----
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{microtype}
+\usepackage{setspace}
+
+%% ---- Typography and layout ----
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{xurl}   % loads url; breaks long URLs so they stay inside the margin
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xspace}
+
+%% Single-spaced body text. PAPPG II.C.2.b allows up to six lines of text per
+%% vertical inch; the value below yields ~5.7 lines/inch, inside that limit.
+\singlespacing
+\linespread{0.94}\selectfont
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.25ex plus 0.15ex}
+
+%% Compact list spacing.
+\setlist{topsep=0.3ex,itemsep=0.2ex,parsep=0pt,leftmargin=1.6em}
+
+%% Keep long words and inline literals from intruding into the right margin.
+\setlength{\emergencystretch}{2em}
+\hbadness=10000
+
+%% Tighter float separation (figure only; body font and margins unchanged).
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{0pt}
+
+%% ---- Section formatting (compact, NSF-style) ----
+\titleformat{\section}
+  {\normalfont\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\itshape}{\thesubsubsection}{0.5em}{}
+
+\titlespacing*{\section}{0pt}{0.9ex plus 0.2ex minus 0.2ex}{0.45ex plus 0.15ex}
+\titlespacing*{\subsection}{0pt}{0.7ex plus 0.2ex minus 0.2ex}{0.3ex plus 0.15ex}
+\titlespacing*{\subsubsection}{0pt}{0.7ex plus 0.2ex minus 0.2ex}{0.3ex plus 0.2ex}
+
+%% Paragraph headings run in, with a little separation.
+\titlespacing*{\paragraph}{0pt}{0.6ex plus 0.15ex}{0.5em}
+
+%% ---- Hyperref settings ----
+%% NOTE: the Project Description contains no URLs by design. urlcolor applies
+%% only to the References Cited section.
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue!55!black,
+  pdftitle={PESOSE: Track 3: RedTwin: AI-Enabled Digital Twins for Continuous
+            Red Teaming of Open-Source Ecosystems},
+  pdfauthor={Giovanni Vigna, Christopher Kruegel, Adam Doupe, Tiffany Bao}
+}
+
+%% ---- Convenience macros ----
+\newcommand{\sysname}{RedTwin\xspace}
+
+%% Conspicuous placeholder for information only the PIs can supply.
+%% Set \todoverifyoff before submission to make any remaining ones fail loudly.
+\newcommand{\todoverify}[1]{%
+  \textbf{\textcolor{red}{[PI TO SUPPLY: #1]}}}
+
+%% ---- No headers or footers ----
+\pagestyle{empty}
+
+\begin{document}
+
+%% ===== Project Summary (1 page, separate upload in the NSF package) =====
+\input{sections/00_summary}
+\clearpage
+
+%% ===== Project Description (15-page limit) =====
+
+\begin{center}
+  {\large\bfseries Project Description}\\[0.3em]
+  {\large\bfseries \sysname: AI-Enabled Digital Twins for Continuous\\
+   Red Teaming of Open-Source Ecosystems}
+\end{center}
+
+%% --- Motivation and required Track 3 framing ---
+\input{sections/01_introduction}
+\input{sections/02_target_ecosystem}        % required element (1) and (2)
+\input{sections/03_impact}                  % Track 3: societal/national impact
+\input{sections/04_vulnerability_landscape} % Track 3: vulnerabilities + risks
+
+%% --- Development plan ---
+\input{sections/05_research_thrusts}
+\input{sections/06_build_test}              % Track 3 review criterion 4
+
+%% --- Assessment ---
+\input{sections/07_evaluation_plan}
+\input{sections/08_timeline}
+\input{sections/09_related_work}
+
+%% --- Team and impacts ---
+\input{sections/10_pi_qualifications}
+\input{sections/11_broader_impacts}
+\input{sections/12_prior_nsf_support}
+
+%% ===== References Cited (separate upload; not counted in the 15 pages) =====
+\clearpage
+%% Ragged-right bibliography: with long URLs this guarantees no line runs
+%% into the right margin (PAPPG II.C.2.c).
+\let\oldbibliography\thebibliography
+\renewcommand{\thebibliography}[1]{\oldbibliography{#1}%
+  \raggedright\setlength{\itemsep}{1.5pt}}
+\sloppy
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

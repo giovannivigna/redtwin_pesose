@@ -1,0 +1,93 @@
+\section{Evaluation Plan}
+\label{sec:evaluation}
+
+\paragraph{Reference infrastructures.}
+Evaluating capture and replication requires ground truth that production systems rarely provide, and we will construct a
+suite of reference networks for which the topology, the configuration, and the set of planted
+vulnerabilities are fully known to us. These networks will be built from
+widely deployed open-source components, including our anchor products and the
+databases, brokers, identity providers, and orchestrators that surround them,
+and they will be described entirely through infrastructure-as-code, so we can instantiate
+them reproducibly, vary their scale, and generate the
+ground-truth knowledge graph automatically. We have developed substantial
+expertise in this domain through our work on the Global Accessible Test
+Infrastructure (GATE) as part of the ACTION NSF AI
+Institute~\cite{action}, in which we have created topologies that represent
+smart cities, chemical plants, water systems, and manufacturing plants. We
+will seed each reference network with a mixture of known vulnerabilities that
+are drawn from public advisories, including the nginx defect classes of
+Section~\ref{sec:landscape}, and with deliberately introduced
+misconfigurations. In addition, we will design a subset of the networks to
+require genuine multi-step chains, so success cannot be achieved by finding a
+single isolated flaw. These reference networks will also serve as
+the challenges for the twinCTF competition described in
+Section~\ref{sec:broader}, and they will be released as a public benchmark.
+
+\paragraph{Metrics and targets.}
+Targets are stated for the reference networks, where ground truth exists.
+
+{\footnotesize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{0.93}
+\begin{longtable}{@{}p{0.55\linewidth}p{0.42\linewidth}@{}}
+\toprule
+\textbf{Metric} & \textbf{Target}\\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Thrust 1 --- capture}}\\
+Hosts and services correctly identified & $\geq 95\%$ of ground truth\\
+Service dependencies correctly identified & $\geq 90\%$\\
+Model coverage estimate vs.\ measured & within 10 points\\
+Expert input per 100 hosts & $\leq 4$ h, declining across cycles\\
+Production impact during observation & no measurable latency or error change\\
+\addlinespace[2pt]
+\multicolumn{2}{@{}l}{\emph{Thrust 2 --- replication}}\\
+Attack-path soundness (paths preserved) & $\geq 90\%$\\
+Precision (twin paths real in original) & $\geq 75\%$\\
+Resource reduction vs.\ full replica & $\geq 10\times$ at equal soundness\\
+\addlinespace[2pt]
+\multicolumn{2}{@{}l}{\emph{Thrust 3 --- analysis}}\\
+Seeded single-component defects found & $\geq 85\%$\\
+Seeded multi-step chains found & $\geq 70\%$\\
+Findings failing to reproduce on original & $\leq 20\%$\\
+Run-to-run stability, identical inputs & $\geq 0.8$ Jaccard overlap\\
+Cost per assessment cycle (100 hosts) & reported; reduced $\geq 2\times$\\
+\textbf{Confirmed defects reported upstream} & $\geq 10$ across nginx, ZMap, deps\\
+\bottomrule
+\end{longtable}}
+
+The target on upstream contributions is the one that most directly reflects
+the purpose of Track~3, because a defect that is fixed upstream is fixed for
+every deployment at once.
+
+\paragraph{Baselines and ablations.}
+Where established baselines exist, we will compare against them. For
+component-level analysis, we will compare the defects found by \sysname
+against those found by running the underlying fuzzing, static-analysis, and
+symbolic-execution tools in isolation, in order to quantify the value added
+by the agentic orchestration and by the context of the knowledge base. For
+capture, we will compare against an unmodified ZMap~\cite{zmap} and against
+inventory tools such as osquery~\cite{osquery} and
+cartography~\cite{cartography}, measuring both coverage and production
+impact, and, for configuration properties, against network configuration
+verification~\cite{batfish}. For multi-step analysis, we will compare against
+our own ChainReactor~\cite{chainreactor} on the single-host problems for
+which it was designed, and against attack-graph generation~\cite{mulval} on
+networked problems. Throughout, we will report the human effort required at
+each stage, since a central claim of the project is that \sysname shifts
+experts from manual assessment to the verification of high-confidence
+findings.
+
+\paragraph{Validation with existing users.}
+Reference networks establish correctness, but only real deployments establish
+usefulness. Working with the collaborators whose letters accompany this
+proposal, and with industry and critical-infrastructure partners, we will
+evaluate \sysname on operational systems in the later phase of the project.
+The ZMap extensions of Section~\ref{sec:thrust1} will be validated by
+operators who run them on their own networks and who report coverage and
+impact, and the nginx configuration checks of Section~\ref{sec:thrust3} will
+be validated against real deployed configurations contributed by
+partners. Subject to written authorization, as described in
+Section~\ref{sec:buildtest}, we will apply the full framework to the internal
+research networks at UCSB and ASU and to partner systems. In these settings,
+the emphasis of the evaluation shifts to the non-disruptiveness of the
+observation phase, to the accuracy of the continuously maintained model as
+the infrastructure changes, and to whether a finding changed what the
+administrators who own the systems actually did.

@@ -1,0 +1,97 @@
+\section{Introduction}
+\label{sec:intro}
+
+Assessing the security posture of large computing infrastructures is
+notoriously difficult because they are complex systems, dynamic in their
+connectivity and usage patterns, and they often carry out processes that
+should not be disrupted. Performing security analysis directly on a
+production system can cause problems: a single aggressive probe against a
+database replica, a message broker, or an authentication service can cascade
+into an outage that violates a regulated availability requirement, corrupts
+state, or interrupts a process on which people depend.
+
+Because of these risks, the analysis of the security posture of an
+infrastructure is usually performed manually and in an ad hoc fashion, by
+analysts whose expertise is scarce and expensive. As a result, these
+assessments are carried out sporadically, and the evolution of the network
+topology, the introduction of a new service, or a change in the configuration
+of a component might introduce a vulnerability that invalidates the results
+of the previous analysis. In the meantime, adversaries that are increasingly
+augmented with AI operate continuously, automatically, and at
+scale~\cite{measuring}, and it is precisely this widening gap that the
+proposed research targets.
+
+\textbf{The goal of the proposed research is to develop a new agentic
+framework, called \sysname, to support the continuous assessment of the
+security posture of computing infrastructures based on open-source
+software.} \sysname uses cooperating teams of AI agents to capture the
+configuration of a target system, monitor its execution, create a
+\emph{digital twin} of the system, run red team exercises against the twin,
+and guide a human-driven verification and remediation of the issues that are
+found in the original system. The core principle of \sysname is a strict
+separation between \emph{observation}, which is passive, non-disruptive, and
+the only activity that ever touches the production system, and
+\emph{analysis}, which is aggressive, potentially destructive, and confined
+entirely to the digital twin. This approach is feasible because the components of the infrastructure are
+open source, and therefore their behavior, configuration surface, and version
+history are transparent and inspectable. This transparency makes it possible to run a
+functionally equivalent instance of a component in a controlled environment,
+something generally infeasible for closed, proprietary appliances.
+
+\paragraph{A motivating scenario.}
+Consider a regional health-care provider whose electronic health-record
+system runs on a stack of open-source components: a
+PostgreSQL~\cite{postgresql} cluster with streaming replication, a set of
+application servers behind an nginx~\cite{nginx} reverse proxy, a
+Keycloak~\cite{keycloak} identity provider federated with the hospital
+directory, a RabbitMQ~\cite{rabbitmq} message broker connecting clinical
+subsystems, and a fleet of medical-device gateways that speak proprietary
+protocols. This deployment is subject to strict availability and privacy
+requirements, and the security team cannot fuzz the application
+servers, cannot flood the broker with malformed messages, cannot run an
+exploit against the identity provider, and cannot even scan the device
+gateways without risking a crash of the devices themselves. As a result, the
+questions that matter remain unanswered. Can an attacker who compromises a
+single device gateway pivot through the broker to reach patient records? Does
+the proxy configuration expose an internal administrative endpoint through a
+path that the access rules did not anticipate? Each of these questions concerns the \emph{deployment} rather than any single component, and none can be answered from an advisory or a source repository. \sysname
+is designed precisely for this situation: it reconstructs the deployment as a
+digital twin, exercises exactly these attack paths against the twin, and
+reports the confirmed chains to the security team for verification on the
+production system, all without ever sending a single aggressive packet to the
+live infrastructure.
+
+A possible alternative to a digital twin would be to leverage the staging
+environment that engineers already use to test applications before
+deployment. In practice, this would not be sufficient, as staging
+environments are built and maintained manually, they drift from production as
+the infrastructure evolves, and they are typically provisioned for functional
+testing rather than to preserve the security-relevant structure of the
+deployment: the exact component versions, the network reachability relations,
+the trust and authentication dependencies, and the data that determines
+authorization decisions. A staging environment that omits the device gateways, or that seeds an empty user directory, will not exhibit the attack paths exploitable in the real infrastructure. \sysname instead
+constructs a digital twin whose fidelity is measured and controlled with
+respect to explicit security properties, as described in
+Section~\ref{sec:thrust2}, and that is kept synchronized with the production
+system by a continuous capture-and-observe loop, as described in
+Section~\ref{sec:thrust1}. The twin is therefore not a convenience for
+developers, but a security artifact with quantifiable representativeness.
+
+\paragraph{Alignment with PESOSE Track~3 and contributions.}
+This project is submitted to NSF~26-506, Track~3, which addresses
+vulnerabilities in open-source products and infrastructure, including both
+technical risks and socio-technical ones. The ecosystem we target is anchored on two existing, widely deployed open-source products, described in Section~\ref{sec:ecosystem}. The first is \textbf{nginx}~\cite{nginx,nginxsrc}, which we will harden against the memory-safety, configuration, and request-smuggling defect classes catalogued in Section~\ref{sec:landscape}. The second is \textbf{ZMap}~\cite{zmap,zmapsrc}, which we will extend into an instrument for safe, budgeted, and information-rich discovery inside production networks. Every finding that we confirm is driven upstream, and the
+work improves not only individual deployments, but also the shared ecosystem
+on which those deployments are built.
+
+The project contributes: (i) agentic workflows that capture the configuration
+of an infrastructure into a continuously maintained knowledge base, together
+with upstream extensions that make open-source discovery safe on production
+networks; (ii) techniques for replicating large infrastructures at reduced
+scale, supported by a \emph{quantitative fidelity measure}; (iii) methods for
+chaining vulnerabilities across a networked infrastructure, extending our
+prior work on AI-planning-based privilege escalation and on a universal
+theory of in-program exploitation to the setting of complete ecosystems; and
+(iv) the hardening of nginx and ZMap, a public corpus of reference
+infrastructures with ground truth, and an open-source release of the
+framework.

@@ -1,0 +1,61 @@
+\section{Milestones and Timeline}
+\label{sec:timeline}
+
+Although the focus of each thrust is sequenced, we plan to operate around a
+working end-to-end prototype from the first quarter, so that every component
+is exercised in context throughout the project. The targets below refer to
+the metrics of Section~\ref{sec:evaluation}, and each year ends with a
+go/no-go review.
+
+{\footnotesize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{0.93}
+\begin{longtable}{@{}p{0.06\linewidth}p{0.48\linewidth}p{0.385\linewidth}@{}}
+\toprule
+\textbf{Qtr} & \textbf{Deliverable} & \textbf{Success criterion}\\
+\midrule
+Q1--Q2 & Knowledge-base schema with provenance and confidence;
+     documentation-ingestion agents; two reference networks (10--20 hosts) as
+     infrastructure-as-code; Observer Agents and passive observation;
+     service-dependency capture; first ZMap safety extensions
+     (impact-budgeted scheduling, interlocks).
+   & Schema expresses all reference-network ground-truth entities; $\geq 85\%$
+     of hosts and services recovered; no measurable production impact under
+     interlocks.\\
+\addlinespace[2pt]
+Q3--Q4 & Observation planning as constrained optimization; model coverage
+     metric; knowledge-graph-native ZMap output and safe fingerprinting;
+     first-generation Replication Agents (equivalence-class abstraction,
+     interaction patterns, synthetic data with authorization-structure
+     preservation). \textbf{First upstream ZMap contribution; end-to-end
+     prototype.}
+   & $\geq 95\%$ hosts/services and $\geq 90\%$ dependencies; coverage estimate
+     within 10 points; 20-host twin built unattended at $\geq 5\times$ resource
+     reduction. \textbf{Go/no-go:} end-to-end run with no manual intervention
+     between stages.\\
+\addlinespace[2pt]
+Q5--Q6 & Logic-based invariants and attack-graph preservation; quantitative
+     fidelity measure; mock synthesis with declared unsoundness regions;
+     component-level Red Team Agents; \textbf{nginx hardening campaign}
+     (memory-safety analysis, configuration-defect checker, differential
+     proxy-upstream smuggling tests).
+   & $\geq 90\%$ soundness and $\geq 75\%$ precision; mock-backed surface
+     correctly identified; $\geq 85\%$ of seeded single-component defects;
+     \textbf{first confirmed defect reported upstream}.\\
+\addlinespace[2pt]
+Q7--Q8 & Multi-step planning (ChainReactor and UTE extended to networks;
+     equivalence-class lifting); analyst verification workflow;
+     continuous-operation cadences and cost reduction; evaluation on partner
+     and campus networks; public release of framework, benchmark, and twinCTF
+     challenges.
+   & $\geq 70\%$ of seeded multi-step chains; planner scales to 100 hosts;
+     $\leq 20\%$ of findings fail to reproduce; $\geq 10$ upstream reports
+     total; artifacts reproducible from published commits.\\
+\bottomrule
+\end{longtable}}
+
+Two dependencies govern this schedule. The ZMap extensions of Q2--Q3 gate the
+quality of the capture that the replication of Q4 consumes, and they are scheduled early, with acceptance criteria stated in terms
+of downstream usability rather than of feature completeness. The fidelity measure of Q5 gates the interpretation of every result of
+Thrust~3, and it precedes the analysis milestones. Should Q5 miss its soundness
+target, Q6--Q8 will proceed on the reference networks, where ground truth
+substitutes for the measure, while the work on fidelity continues in
+parallel.

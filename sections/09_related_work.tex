@@ -1,0 +1,50 @@
+\section{Related Work}
+\label{sec:relwork}
+
+\paragraph{Breach and attack simulation.}
+The closest operational analogue to \sysname is continuous adversary
+emulation, exemplified by MITRE CALDERA~\cite{caldera} and by a commercial
+breach-and-attack-simulation category. These systems run \emph{against
+production}, which is their strength, as no fidelity question arises, and
+equally their fundamental limitation, as a false step damages a live system
+and they are restricted to behaviors known to be safe. They replay
+catalogued techniques, and they do not fuzz a parser or exploit an unknown
+defect. \sysname makes the opposite trade, accepting a fidelity obligation,
+which Section~\ref{sec:thrust2} discharges quantitatively, in exchange for
+the freedom to run destructive analysis.
+
+\paragraph{Network configuration verification and attack graphs.}
+Batfish~\cite{batfish} and Minesweeper~\cite{minesweeper} build formal models
+of network configuration and verify reachability and policy properties over
+them, and Batfish in particular is often described as constructing a network
+digital twin. This work is the direct ancestor of the logic-based invariants
+of Thrust~2, and we adopt its property-checking methodology. The difference
+lies in what the model contains, as these tools model the forwarding plane
+symbolically, whereas \sysname instantiates \emph{running software} at the
+recorded versions and configurations and executes real attacks against it. A
+symbolic model can tell us that a host is reachable, but not that reaching it
+yields code execution through a defect in the service that runs on it.
+Similarly, attack graphs formalize how atomic exploits compose into
+breaches~\cite{attackgraphs}, and MulVAL~\cite{mulval} made the approach
+practical at deployment scale, but the classical work reasons over a
+\emph{database of known} exploits and over assumed host configurations, and the graph is only as good as the
+inventory it is given. \sysname
+closes that loop by deriving the inventory automatically from observation and
+by discovering new primitives through the analysis of the twin.
+
+\paragraph{Discovery, testbeds, and LLM agents for security.}
+ZMap~\cite{zmap} and ZGrab~\cite{zgrab} established fast stateless scanning,
+osquery~\cite{osquery} exposes host state as queryable tables, and
+cartography~\cite{cartography} consolidates infrastructure assets into a
+graph database, closely related to the structured layer of Thrust~1. These
+tools answer the question of what exists, but none constructs a replica
+representative from a security perspective, and none treats the load a probe
+imposes on a fragile host as a first-class constraint. Emulation testbeds
+such as DETER~\cite{deterlab}, and our own work on GATE~\cite{action}, are
+authored by hand, whereas the twins of \sysname are derived automatically
+from a specific deployment. Finally, LLM agents have advanced quickly on
+offensive tasks~\cite{pentestgpt,cybench,measuring}, but that work evaluates
+agents on targets that are \emph{given}, typically single hosts or CTF
+challenges, whereas \sysname addresses the problem those agents presuppose,
+that is, the construction of the target, at infrastructure scale, and
+faithfully enough that what the agent finds is true of a real system.

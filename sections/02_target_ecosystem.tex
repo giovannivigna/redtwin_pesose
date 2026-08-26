@@ -1,0 +1,63 @@
+\section{The Target Open-Source Ecosystem}
+\label{sec:ecosystem}
+
+Track~3 asks proposers to improve the safety, security, and privacy of an
+\emph{existing} open-source ecosystem. This project targets the ecosystem
+that forms the observable and defensible perimeter of nearly every
+open-source deployment, anchored on two widely used, publicly available
+products: \textbf{nginx}~\cite{nginx,nginxsrc}, through which traffic enters
+and moves within such deployments, and \textbf{ZMap}~\cite{zmap,zmapsrc},
+with which operators discover what is actually running. \sysname hardens the
+first, extends the second, and uses both as the concrete ecosystem against
+which its methods are developed and evaluated.
+
+\paragraph{nginx: the trust boundary of open-source infrastructure.}
+nginx is an HTTP server, reverse proxy, load balancer, and TLS terminator
+that has been released under the two-clause BSD license and that has been in
+continuous development since 2004~\cite{nginx}. It ranks consistently among
+the most widely deployed web servers in the world. The
+\emph{development and testing model} follows a maintainer-review process
+around a public repository~\cite{nginxsrc} and a development mailing list,
+with periodic mainline and stable branches, an in-tree functional test suite,
+continuous integration across a broad matrix of platforms and build
+configurations, and downstream testing by the distributions that package it.
+\emph{Dissemination} occurs through official binary packages, distribution
+repositories, and container base images. The \emph{user base} spans
+essentially every sector that runs open-source infrastructure, including the
+health-care, financial, utility, and government deployments that this
+proposal targets. The \emph{contributor base}, in contrast, is comparatively
+small, and it consists of a core maintainer group, a set of occasional patch
+contributors, and a large third-party module ecosystem that is maintained
+outside the project. This asymmetry between an enormous user base and a concentrated maintainer base is precisely the structural risk PESOSE was created to address.
+
+\paragraph{ZMap: discovering what is actually running.}
+ZMap is a single-packet, stateless network scanner that has been released
+under the Apache~2.0 license and that is maintained by an academic and
+industrial consortium~\cite{zmap,zmapsrc}. Its stateless design allows a
+single commodity machine to sweep enormous address spaces far faster than
+connection-oriented scanners, and the companion ZGrab tool performs
+application-layer handshakes that identify service software and
+versions~\cite{zgrab}. The \emph{development and testing model} is a
+pull-request-and-review process conducted in the open on GitHub, with unit
+and integration tests that are run on every pull request and with tagged
+releases that are packaged for major platforms. \emph{Dissemination} occurs
+through the source repository, distribution packages, and container images,
+and ZMap underpins commercial and non-profit internet-measurement services as
+well as a substantial body of peer-reviewed research. The \emph{user base} includes network operators who perform asset inventory,
+incident responders, attack-surface-management services, and academic
+measurement groups, and the \emph{contributor base} is an active but modest
+community centered on the maintaining institutions.
+
+ZMap was designed for internet-wide measurement from outside a network, where
+the marginal effect of a probe on any single host is negligible. This project
+requires the opposite, that is, repeated discovery \emph{inside} a production
+network whose hosts may be fragile medical, industrial, or embedded devices.
+Applied naively, the very property that makes ZMap valuable, its speed, is what makes it unsafe here. Section~\ref{sec:thrust1} describes the extensions we will contribute upstream to make ZMap a first-class instrument for safe, budgeted, and information-rich discovery on production infrastructure.
+
+\paragraph{The ecosystem view.}
+These two products bracket the problem that \sysname addresses, as ZMap
+determines what an operator can \emph{know} about an infrastructure without
+disturbing it, and nginx determines what an attacker can \emph{reach} once
+inside it. Both sit within a broader ecosystem that \sysname must also
+capture, replicate, and analyze, including PostgreSQL~\cite{postgresql}, Keycloak~\cite{keycloak},
+RabbitMQ~\cite{rabbitmq}, and Istio~\cite{istio}. Our working relationships with the maintainers and users of nginx and ZMap, documented in the accompanying letters of collaboration, give the project a direct path from a finding produced on a twin to a fix that reaches every downstream user.

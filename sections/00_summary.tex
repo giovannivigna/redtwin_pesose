@@ -1,0 +1,78 @@
+%% ===== Project Summary (1 page) =====
+%% NSF requires three labeled parts: Overview, Intellectual Merit, Broader Impacts.
+%% The last line must carry 2-5 keywords (NSF 26-506, Section V.A).
+
+\begin{center}
+  {\large\bfseries Project Summary}\\[0.3em]
+  {\large\bfseries PESOSE: Track 3: \sysname: AI-Enabled Digital Twins \\ 
+  for Continuous Red Teaming of Open-Source Ecosystems}
+\end{center}
+
+\noindent\textbf{Overview}\\
+Assessing the security posture of large computing infrastructures is
+notoriously difficult. These are complex systems, dynamic in their
+connectivity and usage patterns, and they often carry out processes that must
+not be disrupted. Performing security analysis directly on a production
+system can cause problems, as scans introduce overhead and analyzing services
+for vulnerabilities can trigger crashes. Because of these risks, a security
+assessment is usually performed manually, sporadically, and in an ad hoc
+fashion by scarce human experts, while adversaries, now increasingly
+augmented with AI, operate continuously. The goal of this proposal is the development of \sysname, an agentic framework
+for the continuous, in-depth, and non-disruptive security assessment of
+computing infrastructures built on open-source software. Such infrastructures
+offer a unique opportunity for a new approach, because the openness of the
+software enables the faithful replication of an infrastructure's topology and
+service configuration. \sysname uses cooperating teams of AI agents to capture the configuration of
+a target system, observe its execution, build a \emph{digital twin} of the
+system, run red team exercises against the twin instead of the production
+system, and, when vulnerabilities are found, guide a human-driven
+verification and remediation of the issues in the original infrastructure.
+Because the analysis runs on the twin, it can be repeated continuously and
+adapted as the target evolves.
+
+The ecosystem that this project targets is anchored on two existing, widely
+deployed open-source products. The first is \textbf{nginx}, the reverse proxy
+through which traffic enters and moves within nearly every open-source
+deployment, and which we will harden against the memory-safety,
+configuration, and request-smuggling defect classes that dominate its
+history. The second is \textbf{ZMap}, the scanner with which operators
+discover what is actually running, and which we will extend into an
+instrument for safe, budgeted discovery inside production networks. Every
+finding that we confirm on a twin is driven upstream to the project
+responsible, and the work therefore improves not only individual deployments,
+but also the shared ecosystem on which they are built.
+
+\vspace{0.2ex}
+\noindent\textbf{Intellectual Merit}\\
+The \sysname framework contributes new agentic workflows that automate the
+tedious tasks of capturing an infrastructure's configuration and reproducing
+it in a virtualized environment. These workflows are supported by novel
+techniques for replicating large-scale infrastructure at reduced scale while
+preserving its security-relevant properties, and for measuring the
+representativeness of the resulting twin through logic-based invariants and
+attack-graph preservation analysis. A distinguishing feature of the approach
+is that the fidelity of the twin is quantified rather than assumed, and that
+the soundness of an analysis is reported together with a measure of how much
+of the target system the capture process actually resolved. Vulnerability-analysis agents then examine the twin using novel techniques
+for chaining vulnerabilities across a networked infrastructure, extending the
+investigators' prior work on AI-planning-based privilege-escalation chains
+and on a universal theory of in-program exploitation to complete
+open-source ecosystems.
+
+\vspace{0.2ex}
+\noindent\textbf{Broader Impacts}\\
+Open-source software underpins the Nation's critical infrastructure, from
+health care and financial systems to utilities and government services. By
+enabling continuous, non-disruptive security assessment of the ecosystems
+built on this software, \sysname will improve the resiliency of that
+infrastructure and help prevent attacks with catastrophic consequences. The improvements that the project contributes to nginx and ZMap
+reach every downstream user of those products, including the many
+organizations that cannot afford commercial alternatives. The project will
+also produce open-source artifacts and a public corpus of reference
+infrastructures, integrate infrastructure-security modules into the curricula
+at UC Santa Barbara and Arizona State University, involve undergraduate and
+underserved students in research, and organize a new public capture-the-flag
+competition centered on the creation of digital twins.
+
+\vspace{0.2ex}
+\noindent\textbf{Keywords:} critical infrastructure; open-source security; digital twins; AI agents; vulnerability analysis.
