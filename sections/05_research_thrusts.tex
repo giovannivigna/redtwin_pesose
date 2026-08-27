@@ -177,13 +177,16 @@ usually have to deal with three types of data. \emph{Semantic data}
 represents the things the organization deals with, such as patients,
 diagnoses, and insurance claims. \emph{Structural data} defines the shape of
 the production data systems, including schemas, foreign-key relationships,
-record counts and sizes, and domain objects such as DICOM images or FHIR
+record counts and sizes, and, in the case of hospitals and other heath-focused organizations, domain objects such as DICOM images or FHIR
 resources. \emph{Operational data} reproduces how the infrastructure behaves,
 including login frequency, API request patterns, query mixes, and backup
 jobs. Specialized agents will profile the source environment for the
 aggregate properties required for fidelity, will generate a semantically
 consistent synthetic state, and will enforce invariants such as referential
 integrity, protocol semantics, and causal ordering.
+In the context of health-management infrastructures, such as hospitals, we plan to leverage existing open-source medical datasets to create realistic datasets.
+To this end, we include a letter of support from the CEO of Sage Bionetworks, an organization whose goal is to provide access to open-source medical and health-related datasets. 
+Using the datasets managed by Sage Bionetworks as well as those that are brokered by that organization, we are planning to create high-fidelity synthetic datasets that will maintain the characteristics of real-world medical data.
 
 \paragraph{Reconciling sanitization with authorization.}
 Sanitization and the preservation of security behavior are in direct tension,
@@ -227,11 +230,13 @@ paths in the twin correspond to real paths in the original. The
 equivalence-class abstraction is designed to preserve soundness while trading
 away precision in a controlled way, and when Thrust~3 reports a finding that
 does not reproduce, the loss of precision is localized to a specific
-abstraction decision that the Replication Agents can then refine. Finally,
-because the search over the action space of the planner dominates the cost of
-Thrust~3, we will also investigate a learned prioritization over the discrete
-planning action space, and Section~\ref{sec:evaluation} ablates it, as the
-planner functions on knowledge-base heuristics alone.
+abstraction decision that the Replication Agents can then refine. 
+
+%Finally,
+%because the search over the action space of the planner dominates the cost of
+%Thrust~3, we will also investigate a learned prioritization over the discrete
+%planning action space, and Section~\ref{sec:evaluation} ablates it, as the
+%planner functions on knowledge-base heuristics alone.
 
 \paragraph{What soundness can and cannot mean here.}
 We are explicit about the limits of this guarantee, because overstating it

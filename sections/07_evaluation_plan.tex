@@ -91,3 +91,30 @@ the emphasis of the evaluation shifts to the non-disruptiveness of the
 observation phase, to the accuracy of the continuously maintained model as
 the infrastructure changes, and to whether a finding changed what the
 administrators who own the systems actually did.
+
+\paragraph{Robustness to the evolution of language models.}
+A distinguishing feature of the design is that \sysname is not a crutch for
+the current limitations of large language models. It is a set of processes
+that encode \emph{structure} and delegate \emph{judgment}, and this division
+is what makes the framework durable. The structure, which includes the
+knowledge-base schema with its provenance and confidence annotations, the
+equivalence-class abstraction, the fidelity measure, and the strict
+separation between passive observation and aggressive analysis, is
+model-independent, and it is the contribution of this project. The judgment,
+which includes interpreting an unfamiliar configuration dialect, reconciling
+a manual that contradicts a runtime observation, and composing exploitation
+primitives into a chain, is delegated to the agents. Both of the activities
+that dominate the quality of an assessment, namely the capture of an
+infrastructure's configuration and the discovery of the flaws that it
+contains, fall on the judgment side, and therefore every advance in model
+capability raises the completeness of the knowledge base and lengthens the
+chains that the Red Team Agents can construct, without any change to the
+schema, to the observation planner, or to the planning formulation. Because
+the agents interact only through typed interfaces, models are swappable, and
+we will evaluate open-weight models alongside frontier ones, so that the
+framework does not depend on any single provider. Furthermore, because the
+reference networks carry ground truth, we can
+hold the benchmark fixed, substitute the model, and report the difference,
+which turns the durability of the approach into a measurement rather than a
+promise. This matters because the same advances accrue to the adversary, and
+the value of \sysname lies precisely in allowing defenders to keep pace.

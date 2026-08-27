@@ -488,18 +488,49 @@ doi = {10.1109/SECPRI.2002.1004377}
   year      = {2025}
 }
 
-%% ============================================================
-%% !!! PI ACTION REQUIRED !!!
-%% The Universal Theory of Exploitation (UTE) is cited in Sections 6.3 and 7
-%% but had NO reference in the original draft. The placeholder below MUST be
-%% replaced with the real citable artifact (DARPA HARDEN technical report,
-%% paper, or public project page) before submission.
-%% ============================================================
 @misc{ute,
-  author       = {{Shellphish}},
-  title        = {{A Universal Theory of Exploitation}},
-  howpublished = {Technical report, DARPA HARDEN program},
-  year         = {2026}
+  author      = {Adam Doup\'e and Zachary Smith},
+  title       = {{Universal Theory of Exploitation: Synthesizing Weird Machine Programs from Guarded Behavior Models}},
+  institution = {Arizona State University},
+  year        = {2026},
+  howpublished         = {\url{https://adamdoupe.com/publications/ute-tech-report.pdf}},
+}
+
+@inproceedings{mystique-CCS18,
+	title        = {Mystique: Uncovering Information Leakage from Browser Extensions},
+	author       = {Chen, Quan and Kapravelos, Alexandros},
+	year         = 2018,
+	booktitle    = {Proceedings of the ACM Conference on Computer and Communications Security (CCS)},
+	howpublished = {https://mystique.csc.ncsu.edu/},
+	code         = {https://github.com/wspr-ncsu/mystique}
+}
+
+@inproceedings{wildextensions-dimva19,
+	title        = {{Wild Extensions: Discovering and Analyzing Unlisted Chrome Extensions}},
+	author       = {Beggs, Aidan and Kapravelos, Alexandros},
+	year         = 2019,
+	month        = jun,
+	booktitle    = {{Proceedings of the Conference on Detection of Intrusions and Malware \& Vulnerability Assessment (DIMVA)}}
+}
+@conference{cloakx-sec19,
+	title        = {{Everyone is Different: Client-side Diversification for Defending Against Extension Fingerprinting}},
+	author       = {Trickel, Erik and Starov, Oleksii and Kapravelos, Alexandros and Nikiforakis, Nick and Doupe, Adam},
+	year         = 2019,
+	month        = aug,
+	booktitle    = {{Proceedings of the USENIX Security Symposium}}
+}
+@conference{extbloat-www2019,
+	title        = {{Unnecessarily Identifiable: Quantifying the fingerprintability of browser extensions due to bloat}},
+	author       = {Starov, Oleksii and Laperdrix, Pierre and Kapravelos, Alexandros and Nikiforakis, Nick},
+	year         = 2019,
+	month        = may,
+	booktitle    = {{Proceedings of The Web Conference}}
+}
+@inproceedings{jahanshahi20:sqlblock,
+	title        = {{You shall not pass: Mitigating SQL Injection Attacks on Legacy Web Applications}},
+	author       = {Rasoul Jahanshahi and Adam Doup\'e and Manuel Egele},
+	year         = 2020,
+	booktitle    = {{Proceedings of the ACM Symposium on Information, Computer and Communications Security (AsiaCCS)}}
 }
 
 %% ============================================================
@@ -510,43 +541,123 @@ doi = {10.1109/SECPRI.2002.1004377}
 %% checked against the actual papers before submission.
 %% ============================================================
 
-@inproceedings{mystique-CCS18,
-  author    = {Quan Chen and Alexandros Kapravelos},
-  title     = {{Mystique}: Uncovering Information Leakage from Browser Extensions},
-  booktitle = {Proceedings of the ACM Conference on Computer and Communications
-               Security (CCS)},
-  year      = {2018}
+@inproceedings{ruaro24crush,
+  title     = {{Not your Type! Detecting Storage Collision Vulnerabilities in Ethereum Smart Contracts}},
+  author    = {Ruaro, Nicola and Gritti, Fabio and McLaughlin, Robert and Grishchenko, Ilya and Kruegel, Christopher and Vigna, Giovanni},
+  booktitle = {Proceedings of the Network and Distributed Systems Security Symposium (NDSS)},
+  address   = {San Diego, USA},
+  month     = {February},
+  year      = {2024}
 }
 
-@inproceedings{wildextensions-dimva19,
-  author    = {Aidan Beggs and Alexandros Kapravelos},
-  title     = {Wild Extensions: Discovering and Analyzing Unlisted Chrome Extensions},
-  booktitle = {Proceedings of the Conference on Detection of Intrusions and Malware
-               and Vulnerability Assessment (DIMVA)},
-  year      = {2019}
-}
-
-@inproceedings{extbloat-www2019,
-  author    = {Michael Weissbacher and Enrico Mariconti and Guillermo Suarez-Tangil
-               and Gianluca Stringhini and William Robertson and Engin Kirda},
-  title     = {Ex-Ray: Detection of History-Leaking Browser Extensions},
-  booktitle = {Proceedings of the World Wide Web Conference (WWW)},
-  year      = {2019}
-}
-
-@inproceedings{cloakx-sec19,
-  author    = {Erik Trickel and Oleksii Starov and Alexandros Kapravelos and
-               Nick Nikiforakis and Adam Doup\'e},
-  title     = {Everyone is Different: Client-side Diversification for Defending
-               against Extension Fingerprinting},
+@inproceedings{DeSilva2024GuideEnricher,
+  title     = {{GuideEnricher: Protecting the Anonymity of Ethereum Mixing Service Users with Deep Reinforcement Learning}},
+  author    = {Silva, Ravindu De and Guo, Wenbo and Ruaro, Nicola and Grishchenko, Ilya and Kruegel, Christopher and Vigna, Giovanni},
   booktitle = {Proceedings of the USENIX Security Symposium},
-  year      = {2019}
+  year      = {2024},
+  month     = {August},
+  address   = {Philadelphia, PA}
 }
 
-@inproceedings{jahanshahi20:sqlblock,
-  author    = {Rasoul Jahanshahi and Adam Doup\'e and Manuel Egele},
-  title     = {{SQLBlock}: Mitigating {SQL} Injection Attacks},
-  booktitle = {Proceedings of the IFIP International Conference on ICT Systems
-               Security and Privacy Protection (IFIP SEC)},
-  year      = {2020}
+
+@inproceedings {ruaro25:approvals,
+	author = {Nicola Ruaro and Fabio Gritti and Dongyu Meng and Robert McLaughlin and Ilya Grishchenko and Christopher Kruegel and Giovanni Vigna},
+	title = {{Approve Once, Regret Forever: On the Exploitation of Ethereum’s Approve-TransferFrom Ecosystem}},
+	booktitle = {Proceedings of the USENIX Security Symposium},
+	month = {August},
+	year = {2025},
+	address = {Seattle, WA}
+}
+
+@inproceedings{ruaro25greed,
+  title        = {{A History of Greed: Practical Symbolic Execution for Ethereum Smart Contracts}},
+  author       = {Ruaro, Nicola and Gritti, Fabio and McLaughlin, Robert and Meng, Dongyu and Grishchenko, Ilya and Kruegel, Christopher and Vigna, Giovanni},
+  booktitle    = {International Conference on Detection of Intrusions and Malware, and Vulnerability Assessment (DIMVA)},
+  month        = {July},
+  year         = {2025},
+  address      = {Graz, Austria},
+  organization = {Springer},
+  pages        = {275--296}
+}
+
+@inproceedings{meng2026houston,
+  author    = {Meng, Dongyu and Gritti, Fabio and McLaughlin, Robert and Ruaro, Nicola and Grishchenko, Ilya and Kruegel, Christopher and Vigna, Giovanni},
+  title     = {{HOUSTON}: Real-Time Anomaly Detection of Attacks against {Ethereum} {DeFi} Protocols},
+  booktitle = {Proceedings of the Network and Distributed System Security Symposium (NDSS)},
+  year      = {2026},
+  doi       = {10.14722/ndss.2026.241534},
+  url       = {https://doi.org/10.14722/ndss.2026.241534}
+}
+
+@inproceedings{aghakhani2024trojanpuzzle,
+  author    = {Aghakhani, Hojjat and Dai, Wei and Manoel, Andre and Fernandes, Xavier and Kharkar, Anant and Kruegel, Christopher and Vigna, Giovanni and Evans, David and Zorn, Benjamin and Sim, Robert},
+  title     = {{TrojanPuzzle}: Covertly Poisoning Code-Suggestion Models},
+  booktitle = {IEEE Symposium on Security and Privacy (S\&P)},
+  year      = {2024}
+}
+
+@inproceedings{gibbs2024mango,
+  author    = {Gibbs, Wil and Raj, Aravind and Vadayath, Jayakrishna Menon and Tay, Hui Jun and Miller, Jack and Ajayan, Arvind and Basque, Zion and Dutcher, Audrey and Dong, Fan and Maso, Xander and Vigna, Giovanni and Kruegel, Christopher and Doup{\'e}, Adam and Shoshitaishvili, Yan and Wang, Ruoyu},
+  title     = {Operation Mango: Scalable Discovery of Taint-Style Vulnerabilities in Binary Firmware Services},
+  booktitle = {Proceedings of the USENIX Security Symposium},
+  year      = {2024}
+}
+
+@inproceedings{pletinckx2025proxy,
+  author    = {Pletinckx, Stijn and Kruegel, Christopher and Vigna, Giovanni},
+  title     = {A Large-Scale Measurement Study of the {PROXY} Protocol and its Security Implications},
+  booktitle = {Proceedings of the Network and Distributed System Security Symposium (NDSS)},
+  year      = {2025}
+}
+
+@inproceedings{sedbg,
+author = {Li, Yi Jou and Yu, Zeming and Mattei, James A and Soneji, Ananta and Sun, Zhibo and Wang, Ruoyu and Mink, Jaron and Votipka, Daniel and Bao, Tiffany},
+title = {I Can SE Clearly Now: Investigating the Effectiveness of GUI-based Symbolic Execution for Software Vulnerability Discovery},
+year = {2026},
+isbn = {9798400722783},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+booktitle = {Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},
+articleno = {1217},
+numpages = {17},
+location = {
+},
+series = {CHI '26}
+}
+
+@inproceedings{zeng2026ropbot,
+  title     = {Ropbot: Reimagining Code Reuse Attack Synthesis},
+  author    = {Zeng, Kyle and Schloegel, Moritz and Salls, Christopher and Doup{\'e}, Adam and Wang, Ruoyu and Shoshitaishvili, Yan and Bao, Tiffany},
+  booktitle = {Proceedings of the Network and Distributed System Security (NDSS) Symposium},
+  year      = {2026},
+  month     = feb,
+  publisher = {Internet Society}
+}
+
+@inproceedings{Mattei2026SoK,
+  author    = {James Mattei and Andrew Lin and Jasper Geer and Jie Hu and
+               Moritz Schloegel and Tiffany Bao and Daniel Votipka},
+  title     = {{SoK: A Modularized Framework for Symbolic Execution and Application for Usable Tool Design}},
+  booktitle = {Proceedings of the 2026 ACM Secure Development Conference (SecDev '26)},
+  year      = {2026},
+  pages     = {57--73},
+  doi       = {10.1145/3805773.3805996}
+}
+@inproceedings{Dong2026Taveren,
+  author    = {Fangzhou Dong and Arvind S. Raj and Efr{\'e}n L{\'o}pez-Morales and
+               Siyu Liu and Yan Shoshitaishvili and Tiffany Bao and
+               Adam Doup{\'e} and Muslum Ozgur Ozmen and Ruoyu Wang},
+  title     = {Discovering Blind-Trust Vulnerabilities in PLC Binaries via State Machine Recovery},
+  booktitle = {Proceedings of the Network and Distributed System Security (NDSS) Symposium 2026},
+  year      = {2026},
+  doi       = {10.14722/ndss.2026.241624},
+  url       = {https://www.ndss-symposium.org/ndss-paper/discovering-blind-trust-vulnerabilities-in-plc-binaries-via-state-machine-recovery/}
+}
+@inproceedings{flakjack,
+  author = {Arvind S Raj and Wil Gibbs and Fangzhou Dong and Jayakrishna Menon Vadayath and Michael Tompkins and
+            Steven Wirsz and Yibo Liu and Zhenghao Hu and Chang Zhu and Gokulkrishna Praveen Menon and
+            Brendan Dolan-Gavitt and Adam Doup{\'e} and Ruoyu Wang and Yan Shoshitaishvili and Tiffany Bao},
+  title = {\emph{Fuzz to the Future:} {Uncovering Occluded Future Vulnerabilities via Robust Fuzzing}},
+  booktitle = {Proceedings of the 2024 ACM SIGSAC Conference on Computer and Communications Security (CCS '24)},
+  year = {2024}
 }

@@ -48,9 +48,8 @@ directory, a RabbitMQ~\cite{rabbitmq} message broker connecting clinical
 subsystems, and a fleet of medical-device gateways that speak proprietary
 protocols. This deployment is subject to strict availability and privacy
 requirements, and the security team cannot fuzz the application
-servers, cannot flood the broker with malformed messages, cannot run an
-exploit against the identity provider, and cannot even scan the device
-gateways without risking a crash of the devices themselves. As a result, the
+servers, cannot flood the broker with malformed messages, and cannot run an
+exploit against the identity provider. As a result, the
 questions that matter remain unanswered. Can an attacker who compromises a
 single device gateway pivot through the broker to reach patient records? Does
 the proxy configuration expose an internal administrative endpoint through a
