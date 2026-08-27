@@ -93,13 +93,29 @@ the infrastructure changes, and to whether a finding changed what the
 administrators who own the systems actually did.
 
 \paragraph{Robustness to the evolution of language models.}
-Because the agents interact only through typed interfaces, models are
-swappable, and we will evaluate open-weight models alongside frontier ones, so
-that the framework does not depend on any single provider. The reference
-networks carry ground truth, which lets us hold the benchmark fixed,
-substitute the model, and report the difference. We expect the
-model-independent components of the contribution, namely the knowledge-base
-schema, the equivalence-class abstraction, the fidelity measure, and the
-separation of passive observation from aggressive analysis, to remain valid as
-model capability improves, and the substitution experiment measures whether
-they do.
+The design of \sysname separates the components that are independent of any
+model from the judgments that are delegated to one. The knowledge-base schema
+with its provenance and confidence annotations, the equivalence-class
+abstraction, the fidelity measure, and the separation of passive observation
+from aggressive analysis are all specified without reference to how the agents
+are implemented, and they constitute the research contribution of this
+project. The agents supply the judgments that those specifications leave open,
+such as interpreting an unfamiliar configuration dialect, reconciling a manual
+that contradicts a runtime observation, and composing exploitation primitives
+into a chain. The two activities that dominate the quality of an assessment,
+namely the capture of an infrastructure's configuration and the discovery of
+the flaws it contains, both fall on the judgment side, so an improvement in
+model capability yields a more complete knowledge base and longer chains with
+no change to the schema, to the observation planner, or to the planning
+formulation. Because the agents interact only through typed interfaces, models
+are swappable, and we will evaluate open-weight models alongside frontier ones
+so that the framework does not depend on any single provider. The reference
+networks carry ground truth, which lets us hold the benchmark fixed and vary
+the model. We will run that substitution across models of differing capability
+at each annual review, and it tests the separation as much as it tests the
+models: if some substitution requires a change to the schema, to the
+observation planner, or to the planning formulation, then the boundary between
+structure and judgment has been drawn in the wrong place, and we will report
+where it belongs. The same gains in capability accrue to the adversary, and
+the substitution experiment measures how much of each gain the defender
+collects.
