@@ -28,7 +28,8 @@ health-care, financial, utility, and government deployments that this
 proposal targets. The \emph{contributor base}, in contrast, is comparatively
 small, and it consists of a core maintainer group, a set of occasional patch
 contributors, and a large third-party module ecosystem that is maintained
-outside the project. This asymmetry between an enormous user base and a concentrated maintainer base is precisely the structural risk PESOSE was created to address.
+outside the project. This asymmetry between the size of the user base and the size of the
+maintainer base is the structural risk that Track~3 targets.
 
 \paragraph{ZMap: discovering what is actually running.}
 ZMap is a single-packet, stateless network scanner that has been released
@@ -52,7 +53,8 @@ ZMap was designed for internet-wide measurement from outside a network, where
 the marginal effect of a probe on any single host is negligible. This project
 requires the opposite, that is, repeated discovery \emph{inside} a production
 network whose hosts may be fragile medical, industrial, or embedded devices.
-Applied naively, the very property that makes ZMap valuable, its speed, is what makes it unsafe here. Section~\ref{sec:thrust1} describes the extensions we will contribute upstream to make ZMap a first-class instrument for safe, budgeted, and information-rich discovery on production infrastructure.
+The probe rate that makes ZMap valuable for internet-wide measurement is
+unsafe against such hosts. Section~\ref{sec:thrust1} describes the extensions we will contribute upstream to make ZMap a first-class instrument for safe, budgeted, and information-rich discovery on production infrastructure.
 
 \paragraph{The ecosystem view.}
 These two products bracket the problem that \sysname addresses, as ZMap

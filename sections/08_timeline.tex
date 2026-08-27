@@ -37,7 +37,7 @@ Q5--Q6 & Logic-based invariants and attack-graph preservation; quantitative
      component-level Red Team Agents; \textbf{nginx hardening campaign}
      (memory-safety analysis, configuration-defect checker, differential
      proxy-upstream smuggling tests).
-   & $\geq 90\%$ soundness and $\geq 75\%$ precision; mock-backed surface
+   & $\geq 90\%$ attack-path recall and $\geq 75\%$ precision; mock-backed surface
      correctly identified; $\geq 85\%$ of seeded single-component defects;
      \textbf{first confirmed defect reported upstream}.\\
 \addlinespace[2pt]
@@ -52,10 +52,11 @@ Q7--Q8 & Multi-step planning (ChainReactor and UTE extended to networks;
 \bottomrule
 \end{longtable}}
 
-Two dependencies govern this schedule. The ZMap extensions of Q2--Q3 gate the
-quality of the capture that the replication of Q4 consumes, and they are scheduled early, with acceptance criteria stated in terms
-of downstream usability rather than of feature completeness. The fidelity measure of Q5 gates the interpretation of every result of
-Thrust~3, and it precedes the analysis milestones. Should Q5 miss its soundness
-target, Q6--Q8 will proceed on the reference networks, where ground truth
-substitutes for the measure, while the work on fidelity continues in
-parallel.
+The ZMap extensions gate the quality of the capture that the
+first-generation Replication Agents consume, so they are scheduled across
+Q1--Q4, with acceptance criteria stated in terms of downstream usability
+instead of feature completeness. The fidelity measure gates the interpretation
+of every result of Thrust~3, and it therefore precedes the analysis milestones
+in Q5--Q6. Should that milestone miss its recall target, the remaining
+quarters will proceed on the reference networks, where ground truth
+substitutes for the measure, while the work on fidelity continues in parallel.

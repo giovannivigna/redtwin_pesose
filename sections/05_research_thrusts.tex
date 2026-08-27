@@ -29,10 +29,8 @@ below. The Knowledge Base Agents build and maintain the model of the target,
 the Observer Agents enrich that model by watching the running system without
 ever touching it, the Replication Agents construct the twin, and the Red Team
 Agents attack the twin and report their findings to a human analyst. When a
-finding is a false positive, or an artifact of an imprecise replication, the
-information flows back to the Knowledge Base and Observer Agents, and in this
-way the analysis does not merely consume the fidelity of the twin, but
-continuously improves it. In the health-care deployment of
+finding is a false positive, or an artifact of an imprecise replication, the information flows back to the Knowledge Base and Observer Agents, so each
+analysis cycle also improves the fidelity of the twin. In the health-care deployment of
 Section~\ref{sec:intro}, this loop is what turns an undocumented
 administrative endpoint, a permissive \texttt{proxy\_pass} rule, and a
 deserialization flaw in a broker client library into a single reported chain
@@ -59,9 +57,8 @@ them the \emph{provenance} of the information together with a
 \emph{confidence} level. Both are essential, because the same fact may be
 asserted by a configuration manual and contradicted by a runtime observation.
 Version information must be fine enough to map a deployed component to the
-package, release, and build options that determine its vulnerabilities, as
-knowing that a deployment runs nginx is nearly useless, whereas knowing its
-version, its module set, and its directive configuration is actionable.
+package, release, and build options that determine its vulnerabilities, since the component name alone does not identify a vulnerability set, whereas
+the version, the module set, and the directive configuration do.
 
 \paragraph{Observation techniques.}
 The Observer Agents monitor the system statically, through documentation,
@@ -75,14 +72,14 @@ such as Ansible~\cite{ansible} or Puppet~\cite{puppet}, and the ingestion of
 alerts from IDS/IPS, EDR, or SIEM tools. In addition, we plan to extend our
 previous work on service security dependency analysis~\cite{achilles}. That
 research demonstrated that by observing the dynamic behavior of services it
-is possible to derive their security properties and dependencies. Accurately
-modeling these dependencies is essential, because a dependency missed during
-capture becomes an attack path that cannot be tested in the twin.
+is possible to derive their security properties and dependencies. Accurately modeling these dependencies is essential: any dependency missed
+during capture is absent from the twin and therefore never exercised by the
+analysis.
 
 \paragraph{Safe active discovery: extending ZMap.}
-Passive observation cannot resolve every question, as whether a service is
-reachable from a given segment, and what version it runs, is often answerable
-only by sending a packet. The stateless design of ZMap~\cite{zmap} makes it
+Passive observation cannot resolve every question, because whether a service
+is reachable from a given segment, and what version it runs, is often
+answerable only by sending a packet. The stateless design of ZMap~\cite{zmap} makes it
 the right foundation for this task, but its assumption that the marginal
 effect of a probe is negligible does not hold inside a hospital or a plant.
 We therefore plan to develop, and contribute upstream, four extensions:
@@ -106,10 +103,8 @@ resources such as LLM queries, and the plan maximizes the coverage of the
 components most relevant to the security model while respecting hard
 constraints, for example, never deploying an agent on a host that carries a
 latency-sensitive clinical workload. Because observation is deliberately
-non-aggressive, the resulting model is necessarily incomplete, and a central
-methodological commitment of this project is to measure that incompleteness
-rather than assume it away. We will therefore develop a \emph{model coverage}
-metric that estimates what fraction of the infrastructure the capture has
+non-aggressive, the resulting model is necessarily incomplete. We will therefore develop a
+\emph{model coverage} metric that estimates what fraction of the infrastructure the capture has
 resolved, using saturation analysis over observation time, cross-validation
 among documentation, infrastructure-as-code, and runtime observation, and, on
 the reference networks, direct measurement against withheld ground truth.
@@ -122,9 +117,9 @@ knowledge base records not just what is running, but also where each
 component came from. This addresses the socio-technical risks
 described in Section~\ref{sec:landscape}, and it feeds the remediation loop
 of Thrust~3. Note that, while the process is presented here as a sequence,
-the agents will actually work continuously, as new documentation will trigger
-new observation plans, and observations inconsistent with the documentation
-will be presented to the administrator for disambiguation. We envision this
+the agents will actually work continuously: new documentation triggers new
+observation plans, and observations inconsistent with the documentation are
+presented to the administrator for disambiguation. We envision this
 as an agent-human collaboration, because deploying observer agents modifies
 the infrastructure and must be vetted, but as the agents become more
 knowledgeable, we expect that the level of interaction will diminish, and
@@ -140,12 +135,10 @@ approach around three insights, and we then make faithfulness quantitative.
 \paragraph{Insight 1: infrastructures replicate for load.}
 If 200 file servers share the same operating-system image, package versions,
 and firewall rules, they can be considered equivalent from a security
-modeling perspective, and a single instance can stand for all of them. This,
-of course, reduces the veracity of the twin, as attacks that exploit resource
-bottlenecks will not transfer. Therefore, this abstraction process is a
-trade-off between the faithful replication of a system and the minimization
-of resource usage, and it is a trade-off that \sysname makes explicit and
-quantifiable. We will formalize this idea as an equivalence relation over the
+modeling perspective, and a single instance can stand for all of them. This reduces the veracity of the twin, because attacks that exploit resource
+bottlenecks will not transfer. The abstraction is therefore a trade-off
+between faithful replication and the minimization of resource usage, and the
+fidelity measure defined below reports where a given twin sits on it. We will formalize this idea as an equivalence relation over the
 components of the infrastructure. Two components are placed in the same class
 when they agree on the attributes that determine their security behavior,
 such as the software image and version, the set of open ports and exposed
@@ -165,10 +158,9 @@ well and with which they are familiar, and a particular pairing of a proxy
 and an upstream recurs throughout an infrastructure. Each pattern can
 carry pattern-specific vulnerabilities, and the replication algorithm will
 identify these patterns and will make sure that each of them is instantiated
-in the twin. This matters directly for our anchor product, as request
-smuggling is a property of a \emph{pairing} and not of nginx alone, and a
-twin that collapses distinct pairings into one loses exactly the structure
-that makes those defects visible.
+in the twin. This matters directly for our anchor product: request smuggling is a property
+of a \emph{pairing} and not of nginx alone, so a twin that collapses distinct
+pairings into one cannot exhibit those defects.
 
 \paragraph{Insight 3: data is as relevant as code.}
 If an LDAP server uses a specific database of users to authorize access to a
@@ -177,7 +169,7 @@ usually have to deal with three types of data. \emph{Semantic data}
 represents the things the organization deals with, such as patients,
 diagnoses, and insurance claims. \emph{Structural data} defines the shape of
 the production data systems, including schemas, foreign-key relationships,
-record counts and sizes, and, in the case of hospitals and other heath-focused organizations, domain objects such as DICOM images or FHIR
+record counts and sizes, and, in the case of hospitals and other health-focused organizations, domain objects such as DICOM images or FHIR
 resources. \emph{Operational data} reproduces how the infrastructure behaves,
 including login frequency, API request patterns, query mixes, and backup
 jobs. Specialized agents will profile the source environment for the
@@ -223,14 +215,20 @@ infrastructure and the twin, and we will establish that the attack graphs of
 the twin are a sound abstraction of the attack graphs of the original.
 Building on these two techniques, we will define a fidelity measure that
 reports which security-relevant properties are preserved, which are
-approximated, and which are lost. The measure will distinguish
-\emph{soundness}, meaning that every attack path present in the original has
-a corresponding path in the twin, from \emph{precision}, meaning that the
-paths in the twin correspond to real paths in the original. The
-equivalence-class abstraction is designed to preserve soundness while trading
-away precision in a controlled way, and when Thrust~3 reports a finding that
-does not reproduce, the loss of precision is localized to a specific
-abstraction decision that the Replication Agents can then refine. 
+approximated, and which are lost. The measure rests on two distinct notions.
+\emph{Soundness} is the property that every attack path present in the
+original has a corresponding path in the twin. It is what the
+equivalence-class abstraction is constructed to preserve, and it either holds
+or it fails; the quantity we can measure against ground truth is
+\emph{attack-path recall}, the fraction of the original's attack paths that a
+given twin reproduces. Recall below one therefore identifies a defect to be
+diagnosed and not a tolerance to be accepted: some abstraction decision
+discarded an attribute on which an attack depended, and the missing path
+identifies which one. \emph{Precision} is the fraction of the paths in the
+twin that correspond to real paths in the original, and the abstraction trades
+precision away deliberately, so a Thrust~3 finding that does not reproduce
+likewise localizes to a specific abstraction decision that the Replication
+Agents can then refine. 
 
 %Finally,
 %because the search over the action space of the planner dominates the cost of
@@ -239,12 +237,10 @@ abstraction decision that the Replication Agents can then refine.
 %planner functions on knowledge-base heuristics alone.
 
 \paragraph{What soundness can and cannot mean here.}
-We are explicit about the limits of this guarantee, because overstating it
-would be the most consequential error this project could make. The attack
+Soundness, as defined above, carries a specific limit. The attack
 graph of the original can only be derived from the captured model, itself the
-product of deliberately non-aggressive observation. Our soundness result is
-therefore \emph{soundness relative to the captured model}, rather
-than an unconditional claim about the physical system. On the reference
+product of deliberately non-aggressive observation. What we can establish is therefore \emph{soundness relative to the captured
+model}, and not an unconditional claim about the physical system. On the reference
 networks, where ground truth exists by construction, we will evaluate the
 stronger property, by comparing the attack graph of the twin against one
 derived from the true configuration, and on production every soundness claim
@@ -254,19 +250,19 @@ is reported jointly with the model coverage metric of Thrust~1.
 For proprietary appliances, unavailable hardware, and closed-source services
 for which no substitute exists, the Replication Agents will synthesize a mock
 that reproduces the externally observable behavior recorded by the Observer
-Agents. Mocks are a principled source of \emph{false negatives}, as a mock
-reproduces behavior that was observed, whereas exploitable behavior is very
-often behavior that was never observed. We therefore treat every mocked
+Agents. Mocks introduce \emph{false negatives} by construction: a mock reproduces only
+the behavior the Observer Agents recorded, and exploitable behavior is
+frequently behavior that was never exercised in production. We therefore treat every mocked
 component as a declared region of unsoundness. The fidelity report marks
 which parts of the attack surface are mock-backed, findings whose chains
 traverse a mock are flagged as requiring verification on the production
 system, and the coverage measure is reduced accordingly. Our previous
 research on re-hosting proprietary
 firmware~\cite{gustafson2019:pretender,gustafson2020:halucinator,spensky2021:Conware,scharnowski22:fuzzware}
-will be an excellent starting point, as it demonstrated that static and
-dynamic analysis combined with runtime observation can execute proprietary
-firmware on emulators such as Qemu~\cite{qemu}, even without documentation
-about the underlying hardware.
+provides the starting point: it demonstrated that static and dynamic analysis
+combined with runtime observation can execute proprietary firmware on emulators
+such as Qemu~\cite{qemu}, even without documentation about the underlying
+hardware.
 
 \subsection{Thrust 3: Analyzing the Security Posture of Digital Twins}
 \label{sec:thrust3}
@@ -286,10 +282,9 @@ context of the knowledge base. The value added by the agentic layer is
 twofold: it maps a low-level defect to the role that the affected component
 plays in the infrastructure, and it expresses the defect as an exploitation
 primitive with preconditions and postconditions that the system-level planner
-can compose. Here the open-source nature of the ecosystem is a key advantage,
-as the source and the build configuration of each component are available,
-and the agents can analyze it with a depth that would be impossible for
-closed appliances.
+can compose. Here the open-source nature of the ecosystem is an advantage: the source and
+the build configuration of each component are available, and the agents can
+analyze them with a depth that would be impossible for closed appliances.
 
 \paragraph{Hardening nginx.}
 nginx is the first target of this machinery, and it is the primary vehicle
@@ -306,12 +301,12 @@ checker that identifies the traversal, normalization, and access-bypass
 patterns of Section~\ref{sec:landscape}, and we will contribute the resulting
 rules as tooling that the wider community can run. For \emph{request
 smuggling}, we will exercise the proxy-upstream \emph{pairings} as they
-actually occur in captured deployments, differentially testing how nginx and
-each upstream parse the same request, a class of defect that can only be
-found by testing the pair. Confirmed defects are reported upstream
-under the process of Section~\ref{sec:buildtest}. Where a defect is
-configuration-induced rather than a code flaw, the deliverable is detection
-tooling and documentation rather than a patch.
+actually occur in captured deployments, differentially testing how nginx and each upstream parse the same request.
+Such defects are properties of the pair, and testing either component in
+isolation cannot reveal them. Confirmed defects are reported upstream
+under the process of Section~\ref{sec:buildtest}. Where a defect is configuration-induced instead of a code flaw, the
+deliverable is detection tooling and documentation, since there is no patch to
+submit.
 
 \paragraph{Composing multi-step attacks.}
 The workflow will instantiate a clean version of the twin, and the attack
@@ -324,9 +319,8 @@ efforts. ChainReactor automated the discovery of privilege-escalation chains
 via AI planning. UTE, which we have developed as part of the DARPA HARDEN
 program, treats exploitation as a search problem: any exploitable bug exposes
 a small set of operations that an attacker can induce, for example
-allocations, frees, reads, writes, and file operations, and by modeling the
-effects and the preconditions of these operations abstractly, exploitation
-becomes a tractable search problem for a solver. Furthermore, this same
+allocations, frees, reads, writes, and file operations, and by modeling the effects and the preconditions of these operations
+abstractly, the construction of an exploit becomes tractable for a solver. Furthermore, this same
 abstraction allows us to reason about chains that cross theories, for
 example, a buffer overflow that exists only if the attacker can control the
 contents of a file. UTE has been designed for
@@ -342,8 +336,7 @@ of classes and roles rather than individual hosts, and then lift a discovered
 chain into a family of concrete chains in the original.
 
 \paragraph{What ``continuous'' costs.}
-Because continuity is the central claim of this project, we quantify it
-rather than assert it. \sysname operates on three cadences:
+\sysname operates on three cadences:
 \emph{event-triggered} re-capture, within minutes of an
 infrastructure-as-code commit or of an observer detecting an undocumented
 host; \emph{scheduled} re-analysis, nightly for the component-level analysis
@@ -351,21 +344,17 @@ of changed components and weekly for the full multi-step planning; and
 \emph{advisory-triggered} re-analysis, when a new CVE affects a component
 that the knowledge base records as deployed, reducing the question of whether
 the organization is exposed from a multi-day manual exercise to a
-query against a twin that already exists. The dominant recurring costs are
-LLM inference and the compute for twin instantiation and fuzzing, and
-establishing the cost per cycle, and reducing it through incremental
-re-capture and caching, is an explicit engineering objective that
-Section~\ref{sec:evaluation} reports as a first-class metric.
+query against a twin that already exists. The dominant recurring costs are LLM inference and the compute for twin
+instantiation and fuzzing. Establishing the cost per cycle, and reducing it
+through incremental re-capture and caching, is an explicit engineering
+objective, and Section~\ref{sec:evaluation} reports it as a metric.
 
 \paragraph{From findings to prevention, detection, and recovery.}
-Consistent with the goals of PESOSE Track~3, the output of this thrust is
-oriented toward prevention, detection, and recovery rather than toward attack
-for its own sake. The result of an analysis is a detailed document that describes the
+Consistent with the goals of PESOSE Track~3, the output of this thrust is oriented toward prevention, detection, and
+recovery. The result of an analysis is a detailed document that describes the
 multi-step attack, and this document is communicated to a human security
-analyst, who will have to validate the findings on the actual system. False
-positives trigger a re-evaluation of the fidelity of the replication, and in
-this way Thrust~3 not only produces actionable findings, but also
-continuously improves the twin. Each confirmed chain is accompanied by the
+analyst, who will have to validate the findings on the actual system. False positives trigger a re-evaluation of the fidelity of the replication, so
+this thrust both produces actionable findings and improves the twin. Each confirmed chain is accompanied by the
 set of preconditions that enabled it, which directly suggests remediations,
 such as removing an unnecessary reachability relation, updating a component
 to a patched release, tightening an access-control rule, or segmenting a

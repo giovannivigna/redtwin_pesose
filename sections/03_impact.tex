@@ -1,8 +1,9 @@
 \section{Societal, National, and Economic Impact}
 \label{sec:impact}
 
-The security of nginx and ZMap is not a property of two programs. It is a
-property of everything built on top of them.
+nginx and ZMap sit beneath a large fraction of the open-source software
+deployed today, and their defects are therefore inherited by every deployment
+built on them.
 
 \paragraph{What depends on nginx.}
 nginx sits at the point where untrusted traffic first meets an
@@ -18,9 +19,9 @@ inherit this exposure, generally without any ability to audit it themselves.
 ZMap and the tools built on it are how defenders learn what they actually
 operate. Attack-surface management, triage after a new advisory, incident
 response, and regulatory asset inventory all reduce to the question of what
-is running, where, and at what version. When that question is answered
-incompletely, every downstream decision inherits the gap, because hosts that
-are unknown are also hosts that are unpatched. Improving the safety and the
+is running, where, and at what version. When that question is answered incompletely, every downstream decision
+inherits the gap, because hosts absent from the inventory are not patched when
+an advisory lands. Improving the safety and the
 information yield of open-source discovery therefore improves the security of
 every organization that relies on it, and it disproportionately helps those
 that cannot afford commercial alternatives.
@@ -30,8 +31,8 @@ These components are deployed across the sectors on which the Nation depends,
 and the open-source stack as a whole has recently been valued in the
 trillions of dollars annually. The maintainer asymmetry described in
 Section~\ref{sec:ecosystem} means that public investment in the security of
-these specific components generates returns far out of proportion to its cost, as every
-vulnerability that \sysname finds and drives upstream is removed
+these specific components generates returns far out of proportion to its cost:
+every vulnerability that \sysname finds and drives upstream is removed
 simultaneously from every deployment that shares the affected component.
 
 \paragraph{Measures of success.}

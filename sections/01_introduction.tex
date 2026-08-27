@@ -18,8 +18,7 @@ topology, the introduction of a new service, or a change in the configuration
 of a component might introduce a vulnerability that invalidates the results
 of the previous analysis. In the meantime, adversaries that are increasingly
 augmented with AI operate continuously, automatically, and at
-scale~\cite{measuring}, and it is precisely this widening gap that the
-proposed research targets.
+scale~\cite{measuring}. The proposed research targets this widening gap.
 
 \textbf{The goal of the proposed research is to develop a new agentic
 framework, called \sysname, to support the continuous assessment of the
@@ -49,12 +48,11 @@ subsystems, and a fleet of medical-device gateways that speak proprietary
 protocols. This deployment is subject to strict availability and privacy
 requirements, and the security team cannot fuzz the application
 servers, cannot flood the broker with malformed messages, and cannot run an
-exploit against the identity provider. As a result, the
-questions that matter remain unanswered. Can an attacker who compromises a
+exploit against the identity provider. As a result, the questions that matter to the security team remain
+unanswered. Can an attacker who compromises a
 single device gateway pivot through the broker to reach patient records? Does
 the proxy configuration expose an internal administrative endpoint through a
-path that the access rules did not anticipate? Each of these questions concerns the \emph{deployment} rather than any single component, and none can be answered from an advisory or a source repository. \sysname
-is designed precisely for this situation: it reconstructs the deployment as a
+path that the access rules did not anticipate? Each of these questions concerns the \emph{deployment} as a whole, and none can be answered from an advisory or a source repository. \sysname is designed for this situation: it reconstructs the deployment as a
 digital twin, exercises exactly these attack paths against the twin, and
 reports the confirmed chains to the security team for verification on the
 production system, all without ever sending a single aggressive packet to the
@@ -68,20 +66,17 @@ the infrastructure evolves, and they are typically provisioned for functional
 testing rather than to preserve the security-relevant structure of the
 deployment: the exact component versions, the network reachability relations,
 the trust and authentication dependencies, and the data that determines
-authorization decisions. A staging environment that omits the device gateways, or that seeds an empty user directory, will not exhibit the attack paths exploitable in the real infrastructure. \sysname instead
-constructs a digital twin whose fidelity is measured and controlled with
-respect to explicit security properties, as described in
+authorization decisions. A staging environment that omits the device gateways, or that seeds an empty user directory, will not exhibit the attack paths exploitable in the real infrastructure. \sysname constructs a digital twin whose fidelity is measured and controlled
+with respect to explicit security properties, as described in
 Section~\ref{sec:thrust2}, and that is kept synchronized with the production
 system by a continuous capture-and-observe loop, as described in
-Section~\ref{sec:thrust1}. The twin is therefore not a convenience for
-developers, but a security artifact with quantifiable representativeness.
+Section~\ref{sec:thrust1}.
 
 \paragraph{Alignment with PESOSE Track~3 and contributions.}
 This project is submitted to NSF~26-506, Track~3, which addresses
 vulnerabilities in open-source products and infrastructure, including both
-technical risks and socio-technical ones. The ecosystem we target is anchored on two existing, widely deployed open-source products, described in Section~\ref{sec:ecosystem}. The first is \textbf{nginx}~\cite{nginx,nginxsrc}, which we will harden against the memory-safety, configuration, and request-smuggling defect classes catalogued in Section~\ref{sec:landscape}. The second is \textbf{ZMap}~\cite{zmap,zmapsrc}, which we will extend into an instrument for safe, budgeted, and information-rich discovery inside production networks. Every finding that we confirm is driven upstream, and the
-work improves not only individual deployments, but also the shared ecosystem
-on which those deployments are built.
+technical risks and socio-technical ones. The ecosystem we target is anchored on two existing, widely deployed open-source products, described in Section~\ref{sec:ecosystem}. The first is \textbf{nginx}~\cite{nginx,nginxsrc}, which we will harden against the memory-safety, configuration, and request-smuggling defect classes catalogued in Section~\ref{sec:landscape}. The second is \textbf{ZMap}~\cite{zmap,zmapsrc}, which we will extend into an instrument for safe, budgeted, and information-rich discovery inside production networks. Every finding that we confirm is driven upstream, so the work improves both
+individual deployments and the shared ecosystem on which they are built.
 
 The project contributes: (i) agentic workflows that capture the configuration
 of an infrastructure into a continuously maintained knowledge base, together

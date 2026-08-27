@@ -19,8 +19,7 @@ assessment is usually performed manually, sporadically, and in an ad hoc
 fashion by scarce human experts, while adversaries, now increasingly
 augmented with AI, operate continuously. The goal of this proposal is the development of \sysname, an agentic framework
 for the continuous, in-depth, and non-disruptive security assessment of
-computing infrastructures built on open-source software. Such infrastructures
-offer a unique opportunity for a new approach, because the openness of the
+computing infrastructures built on open-source software. Such infrastructures admit a different approach, because the openness of the
 software enables the faithful replication of an infrastructure's topology and
 service configuration. \sysname uses cooperating teams of AI agents to capture the configuration of
 a target system, observe its execution, build a \emph{digital twin} of the
@@ -50,10 +49,9 @@ it in a virtualized environment. These workflows are supported by novel
 techniques for replicating large-scale infrastructure at reduced scale while
 preserving its security-relevant properties, and for measuring the
 representativeness of the resulting twin through logic-based invariants and
-attack-graph preservation analysis. A distinguishing feature of the approach
-is that the fidelity of the twin is quantified rather than assumed, and that
-the soundness of an analysis is reported together with a measure of how much
-of the target system the capture process actually resolved. Vulnerability-analysis agents then examine the twin using novel techniques
+attack-graph preservation analysis. The framework quantifies the fidelity of the twin: each analysis reports
+which security-relevant properties the replica preserves, together with a
+measure of how much of the target system the capture process resolved. Vulnerability-analysis agents then examine the twin using novel techniques
 for chaining vulnerabilities across a networked infrastructure, extending the
 investigators' prior work on AI-planning-based privilege-escalation chains
 and on a universal theory of in-program exploitation to complete

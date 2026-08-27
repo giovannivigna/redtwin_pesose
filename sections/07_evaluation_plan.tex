@@ -39,9 +39,9 @@ Expert input per 100 hosts & $\leq 4$ h, declining across cycles\\
 Production impact during observation & no measurable latency or error change\\
 \addlinespace[2pt]
 \multicolumn{2}{@{}l}{\emph{Thrust 2 --- replication}}\\
-Attack-path soundness (paths preserved) & $\geq 90\%$\\
+Attack-path recall (paths preserved) & $\geq 90\%$\\
 Precision (twin paths real in original) & $\geq 75\%$\\
-Resource reduction vs.\ full replica & $\geq 10\times$ at equal soundness\\
+Resource reduction vs.\ full replica & $\geq 10\times$ at equal recall\\
 \addlinespace[2pt]
 \multicolumn{2}{@{}l}{\emph{Thrust 3 --- analysis}}\\
 Seeded single-component defects found & $\geq 85\%$\\
@@ -53,9 +53,9 @@ Cost per assessment cycle (100 hosts) & reported; reduced $\geq 2\times$\\
 \bottomrule
 \end{longtable}}
 
-The target on upstream contributions is the one that most directly reflects
-the purpose of Track~3, because a defect that is fixed upstream is fixed for
-every deployment at once.
+We regard the upstream-report target as the most important line in this table,
+since a fix that lands upstream reaches every deployment of the affected
+component.
 
 \paragraph{Baselines and ablations.}
 Where established baselines exist, we will compare against them. For
@@ -76,8 +76,8 @@ experts from manual assessment to the verification of high-confidence
 findings.
 
 \paragraph{Validation with existing users.}
-Reference networks establish correctness, but only real deployments establish
-usefulness. Working with the collaborators whose letters accompany this
+Reference networks establish correctness against ground truth; whether the
+results are useful can only be determined on real deployments. Working with the collaborators whose letters accompany this
 proposal, and with industry and critical-infrastructure partners, we will
 evaluate \sysname on operational systems in the later phase of the project.
 The ZMap extensions of Section~\ref{sec:thrust1} will be validated by
@@ -93,28 +93,13 @@ the infrastructure changes, and to whether a finding changed what the
 administrators who own the systems actually did.
 
 \paragraph{Robustness to the evolution of language models.}
-A distinguishing feature of the design is that \sysname is not a crutch for
-the current limitations of large language models. It is a set of processes
-that encode \emph{structure} and delegate \emph{judgment}, and this division
-is what makes the framework durable. The structure, which includes the
-knowledge-base schema with its provenance and confidence annotations, the
-equivalence-class abstraction, the fidelity measure, and the strict
-separation between passive observation and aggressive analysis, is
-model-independent, and it is the contribution of this project. The judgment,
-which includes interpreting an unfamiliar configuration dialect, reconciling
-a manual that contradicts a runtime observation, and composing exploitation
-primitives into a chain, is delegated to the agents. Both of the activities
-that dominate the quality of an assessment, namely the capture of an
-infrastructure's configuration and the discovery of the flaws that it
-contains, fall on the judgment side, and therefore every advance in model
-capability raises the completeness of the knowledge base and lengthens the
-chains that the Red Team Agents can construct, without any change to the
-schema, to the observation planner, or to the planning formulation. Because
-the agents interact only through typed interfaces, models are swappable, and
-we will evaluate open-weight models alongside frontier ones, so that the
-framework does not depend on any single provider. Furthermore, because the
-reference networks carry ground truth, we can
-hold the benchmark fixed, substitute the model, and report the difference,
-which turns the durability of the approach into a measurement rather than a
-promise. This matters because the same advances accrue to the adversary, and
-the value of \sysname lies precisely in allowing defenders to keep pace.
+Because the agents interact only through typed interfaces, models are
+swappable, and we will evaluate open-weight models alongside frontier ones, so
+that the framework does not depend on any single provider. The reference
+networks carry ground truth, which lets us hold the benchmark fixed,
+substitute the model, and report the difference. We expect the
+model-independent components of the contribution, namely the knowledge-base
+schema, the equivalence-class abstraction, the fidelity measure, and the
+separation of passive observation from aggressive analysis, to remain valid as
+model capability improves, and the substitution experiment measures whether
+they do.

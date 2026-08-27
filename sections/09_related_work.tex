@@ -4,10 +4,9 @@
 \paragraph{Breach and attack simulation.}
 The closest operational analogue to \sysname is continuous adversary
 emulation, exemplified by MITRE CALDERA~\cite{caldera} and by a commercial
-breach-and-attack-simulation category. These systems run \emph{against
-production}, which is their strength, as no fidelity question arises, and
-equally their fundamental limitation, as a false step damages a live system
-and they are restricted to behaviors known to be safe. They replay
+breach-and-attack-simulation category. These systems run \emph{against production}. No fidelity question therefore
+arises, but the same choice restricts them to behaviors known to be safe,
+because a false step damages a live system. They replay
 catalogued techniques, and they do not fuzz a parser or exploit an unknown
 defect. \sysname makes the opposite trade, accepting a fidelity obligation,
 which Section~\ref{sec:thrust2} discharges quantitatively, in exchange for
@@ -21,14 +20,14 @@ digital twin. This work is the direct ancestor of the logic-based invariants
 of Thrust~2, and we adopt its property-checking methodology. The difference
 lies in what the model contains, as these tools model the forwarding plane
 symbolically, whereas \sysname instantiates \emph{running software} at the
-recorded versions and configurations and executes real attacks against it. A
-symbolic model can tell us that a host is reachable, but not that reaching it
-yields code execution through a defect in the service that runs on it.
+recorded versions and configurations and executes real attacks against it. A symbolic model establishes that a host is reachable; it cannot establish
+that reaching it yields code execution through a defect in the service running
+there.
 Similarly, attack graphs formalize how atomic exploits compose into
 breaches~\cite{attackgraphs}, and MulVAL~\cite{mulval} made the approach
 practical at deployment scale, but the classical work reasons over a
-\emph{database of known} exploits and over assumed host configurations, and the graph is only as good as the
-inventory it is given. \sysname
+\emph{database of known} exploits and over assumed host configurations, so the resulting graph inherits any
+error in the inventory it is given. \sysname
 closes that loop by deriving the inventory automatically from observation and
 by discovering new primitives through the analysis of the twin.
 
