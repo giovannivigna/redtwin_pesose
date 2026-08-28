@@ -150,7 +150,10 @@ attributes must be included to preserve a given class of attacks, and we will
 study it empirically, by measuring whether the attacks discovered on the
 abstracted twin still succeed when the abstraction is refined, and
 analytically, by relating the attributes to the preconditions of the attack
-primitives modeled in Thrust~3.
+primitives modeled in Thrust~3. Clustered services are the hard case, since
+collapsing replicas erases node membership, quorum, and inter-node trust; a
+RabbitMQ~\cite{rabbitmq} cluster, with input from its maintainers, is our
+stress test for the relation.
 
 \paragraph{Insight 2: services operate in patterns.}
 Network administrators tend to reuse combinations of components that work
