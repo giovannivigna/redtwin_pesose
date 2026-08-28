@@ -1,0 +1,247 @@
+%% Facilities, Equipment, and Other Resources
+%% NSF 26-506 (PESOSE), Track 3 -- RedTwin
+%%
+%% Compile:  pdflatex facilities.tex   (or `make facilities` from the repo root)
+%%
+%% COMPLIANCE NOTES (PAPPG 24-1):
+%%   - II.D.2.g: narrative in nature; describe ONLY directly applicable resources;
+%%     cover the resources that the organization, its COLLABORATORS, and its
+%%     SUBRECIPIENTS will provide; and include NO quantifiable financial
+%%     information.  (The previous draft's "$800 million in annual research
+%%     expenditures" violated the last of these.)
+%%   - II.D.2.d(iv): unfunded collaborations are documented by a letter AND
+%%     described here.  Section 3 below is that description.
+%%   - II.C.2: the font, spacing, and margin rules apply to supplementary
+%%     documents too.  Times New Roman 11pt, 1in margins, no page numbers
+%%     (Research.gov paginates).
+%%   - URLs ARE permitted here; the no-URL rule is scoped to the Project
+%%     Description only.
+%%   - NSF expects resources named in this section to be provided if the award
+%%     is made, so collaborator commitments are stated conditionally, in the
+%%     terms their letters actually use.
+
+\documentclass[11pt,letterpaper]{article}
+\usepackage[letterpaper,margin=1in,heightrounded,
+            headheight=0pt,headsep=0pt,footskip=0pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{xspace}
+
+\newcommand{\sysname}{RedTwin\xspace}
+
+%% Conspicuous placeholder for facts only the PIs can confirm.
+\newcommand{\todoverify}[1]{%
+  \textbf{\textcolor{red}{[PI TO SUPPLY: #1]}}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.3ex plus .2ex}{0.5ex}
+\titleformat{\subsection}[runin]{\normalfont\bfseries\itshape}{}{0em}{}[.]
+\titlespacing*{\subsection}{0pt}{0.6ex plus .2ex}{0.5em}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+  {\large\bfseries Facilities, Equipment, and Other Resources}
+\end{center}
+
+\vspace{0.3em}
+
+This section describes the resources that the University of California, Santa
+Barbara (the lead organization), Arizona State University (the subrecipient),
+and the project's collaborating organizations will make available to
+\sysname. Only resources that are directly applicable to the proposed work are
+described. The organizations named in Section~3 receive no funds under this
+award.
+
+\section{University of California, Santa Barbara (lead organization)}
+
+UC Santa Barbara is a member of the Association of American Universities and a
+Carnegie R1 institution. Its College of Engineering and Department of Computer
+Science provide office and laboratory space, computing, and administrative
+support to the PIs and their graduate researchers.
+
+\subsection{Laboratory space}
+PIs Vigna and Kruegel direct the Security Laboratory (SecLab), located on the
+second floor of Harold Frank Hall. SecLab provides desk and meeting space for
+up to twenty researchers, and it includes a machine room with the rack space,
+power, and cooling required by the server clusters this project will use.
+
+\subsection{Computing for twin construction and analysis}
+The proposed work instantiates many virtualized hosts at once, since each
+digital twin reproduces a deployment of roughly twenty to one hundred
+components, and it sustains fuzzing and large-language-model inference against
+those twins on a nightly and weekly cadence. Three tiers of resource cover
+this. SecLab operates its own Linux servers and workstations for day-to-day
+development and for the smaller reference networks. The Department of Computer
+Science maintains a high-performance computing server of four nodes carrying
+eight NVIDIA A100 GPUs each, which supports model inference and the
+component-level analyses of Thrust~3. Beyond the department, the Center for
+Scientific Computing (CSC) at the California NanoSystems Institute operates
+shared clusters available to any researcher on campus, including
+Infiniband-interconnected MPI nodes, several large-memory nodes, GPU nodes,
+and high-performance parallel storage; CSC staff hold backgrounds in science
+or mathematics and assist users with porting, developing, and optimizing code.
+The UCSB campus cloud, part of the NSF Aristotle project, provides additional
+elastic capacity for the larger twins.
+\todoverify{confirm the current CSC cluster generation, since the previously
+recorded V100 and M2050 systems date from 2018}
+
+\subsection{Isolated environment for digital twins}
+Section~6 of the Project Description commits to holding every twin on an
+isolated network, restricting access to the project team and the owning
+organization, and destroying twins at the end of an engagement. SecLab
+provides the segregated environment in which that commitment is met.
+\todoverify{describe the isolated VLAN or air-gapped segment used for twins and
+who administers it}
+
+\subsection{Reference infrastructure}
+The Global Accessible Test Infrastructure (GATE), developed and maintained
+under the ACTION AI Institute, provides emulated topologies representing smart
+cities, chemical plants, water systems, and manufacturing plants, and is
+available to the research community. GATE topologies will serve as input
+reference infrastructures for the evaluation of Section~7. No funds are
+requested for them under this award.
+
+\subsection{Personnel provided through the Early Research Scholars Program}
+The Early Research Scholars Program (ERSP) is a year-long, dual-mentored
+research apprenticeship in the Department of Computer Science that pairs small
+undergraduate teams with a faculty PI and a graduate mentor. Its director,
+Ziad Matni, has committed to placing a dedicated team of three to five
+second-year undergraduate researchers with PIs Vigna and Kruegel, co-advised
+by an assigned SecLab graduate mentor. These students will contribute to
+curating candidate open-source infrastructure configurations, to designing test
+cases that exercise the logic-based invariant checks and the attack-graph
+preservation analysis of Thrust~2, to the empirical evaluation of the
+vulnerability-chaining agents, and to the design of the twinCTF challenges
+described in Section~11. This effort is provided at no cost to the award.
+
+\subsection{Campus systems for the operational evaluation}
+Sections~6 and~7 describe the evaluation of \sysname on internal research
+networks at UCSB, performed only under written authorization that specifies
+the scope, the permitted observation techniques, and the rules of engagement.
+\todoverify{name the responsible UCSB IT organization and state the current
+status of the arrangement}
+
+\section{Arizona State University (subrecipient)}
+
+Arizona State University is a member of the Association of American
+Universities and a Carnegie R1 institution with very high research activity.
+
+\subsection{Center and laboratory}
+The Center for Cybersecurity and Trusted Foundations (CTF), part of ASU's
+Advanced Capabilities for National Security Institute, is a multidisciplinary
+center whose research spans binary analysis, vulnerability analysis, malware
+attribution, automated binary analysis systems, and the collaboration of human
+analysts with automated cyber reasoning systems. Its projects are driven by
+real-world challenges and result in open-source prototypes. PI Doup\'e directs
+the Center and co-directs, with Dr.~Shoshitaishvili, the Laboratory of
+Security Engineering for Future Computing (SEFCOM), which occupies a
+designated experimental research area within it. Beyond the hardware below,
+CTF supplies the interdisciplinary connections through which this project can
+reach collaborators in adjacent areas.
+
+\subsection{Equipment applicable to this project}
+SEFCOM operates approximately forty high-end servers and thirty PC systems
+running Windows and UNIX variants. These provide the ASU-side capacity for the
+component-level analysis of Thrust~3 and for the mock synthesis of Thrust~2.
+SEFCOM also holds an ARM DSTREAM high-performance debug and trace unit, which
+supports the firmware re-hosting that ASU contributes to Thrust~2 for
+components that cannot be replicated directly.
+
+\subsection{Educational infrastructure}
+PI Doup\'e is a lead developer of pwn.college, and PIs Doup\'e and Bao are
+Associate Directors of ASU's American Cybersecurity Education Institute, which
+operates the publicly available pwn.college instance and facilitates classes
+for colleges across the United States. This platform will host the open-source
+infrastructure-security modules described in Section~11, giving them the same
+distribution as the platform itself.
+
+\subsection{Campus systems for the operational evaluation}
+\todoverify{name the responsible ASU IT organization and state the current
+status of the arrangement for the campus evaluation of Section~7}
+
+\section{Resources provided by collaborating organizations}
+
+The organizations in this section are not included in the budget and will
+receive no funds under this award. Each has provided a letter of
+collaboration, and the resources described below are those the letters
+commit to, on the conditions those letters state.
+
+\subsection{Sage Bionetworks}
+Sage Bionetworks develops and maintains Synapse, an open-source repository and
+collaboration environment for biomedical research data released under the
+Apache License~2.0. Sage holds data resources of its own, acts as a steward
+and broker for resources contributed by other institutions and consortia, and
+maintains the governance machinery, including data-use agreements, consent
+frameworks, access review, and de-identification practice, that determines
+what may be shared and under what conditions. For the synthetic-data work of
+Thrust~2, Sage has indicated that where a specific use case is well defined
+and has been validated against the applicable consent terms, data-use
+agreements, and access-review process, it expects to work with the team on
+access to material suitable for deriving realistic, non-identifying
+populations for hospital digital twins, meaning structure, distributions, and
+relationships rather than records. Where direct access is not appropriate,
+Sage expects to help specify what a defensible synthetic substitute would have
+to preserve. Any such arrangement is subject to Sage's governance review and
+to the conditions set by the original data contributors.
+
+\subsection{The ZMap project}
+Zakir Durumeri\'c, an original author and continuing maintainer of ZMap, has
+indicated that the extensions developed under this project, including probe
+modules, structured output formats, incremental-scan support, and constraint
+handling, would be welcome through the project's normal review process, so
+that capabilities built for \sysname become available to all ZMap users
+instead of living in a fork. He has also offered advice on scanning
+methodology, covering rate control, vantage-point selection, probe-module
+design, and the safeguards that should govern the observation of operational
+networks. This gives Thrust~1 a maintained upstream path and review capacity
+the project does not otherwise have.
+
+\subsection{The NGINX community and F5, Inc}
+Buu Lam, Director of Community Evangelism for NGINX at F5, operates the
+channels through which NGINX practitioners exchange operational knowledge. He
+has offered to help the team reach practitioners willing to describe
+representative deployment topologies, which is the source of the deployment
+reality that Thrust~1 requires; to review configuration-level findings and
+assess whether a given result reflects a pattern common in the field or an
+artifact of a synthetic test network; and to make NGINX community channels,
+events, and technical-content programs available for carrying results and
+artifacts to operators. These arrangements are subject to internal review at
+F5.
+
+\subsection{The RabbitMQ project and Broadcom Inc}
+Gabriele Santomaggio, a member of the RabbitMQ team at Broadcom, has offered
+maintainer input on the properties that determine whether a replicated broker
+is faithful, including which aspects of cluster formation and inter-node
+communication are security-relevant, how virtual-host and permission
+structures should be represented, which plugin combinations change the exposed
+surface, and where a superficially correct replica would diverge from a real
+deployment under load or partition. This supports the clustered-service stress
+test of Thrust~2 directly. He has further indicated that findings in the code
+would be handled through the project's normal security reporting process, and
+that findings about deployment and configuration would inform safer defaults,
+configuration validation and diagnostics, and corrections to the documentation
+and reference deployments that users copy. These arrangements are subject to
+internal review at Broadcom.
+
+\section{Other resources}
+
+\subsection{Competition infrastructure}
+The PIs have organized the iCTF competition annually since 2003. The twinCTF
+competition of Section~11 will reuse the existing iCTF hosting and scoring
+infrastructure rather than standing up new infrastructure of its own.
+
+\subsection{Shared development infrastructure}
+The two institutions already share a single source repository and continuous
+integration system for existing joint efforts, and this project will use the
+same arrangement, as described in Section~6.
+
+\end{document}
