@@ -84,15 +84,27 @@ development and for the smaller reference networks. The Department of Computer
 Science maintains a high-performance computing server of four nodes carrying
 eight NVIDIA A100 GPUs each, which supports model inference and the
 component-level analyses of Thrust~3. Beyond the department, the Center for
+%% Specifications below follow the CSC "Get Started" page,
+%% https://csc.cnsi.ucsb.edu/get-started (checked August 2026). That page lists
+%% the V100 nodes as V100/40GB; the memory figure is omitted here because the
+%% V100 normally ships in 16GB and 32GB variants. Confirm before submission if
+%% you want the figure included. Condo clusters (Braid, Braid2) are excluded
+%% because access depends on node ownership. Per-node condo pricing is on that
+%% page and must NOT be quoted here: PAPPG II.D.2.g forbids quantifiable
+%% financial information in this section.
 Scientific Computing (CSC) at the California NanoSystems Institute operates
-shared clusters available to any researcher on campus, including
-Infiniband-interconnected MPI nodes, several large-memory nodes, GPU nodes,
-and high-performance parallel storage; CSC staff hold backgrounds in science
-or mathematics and assist users with porting, developing, and optimizing code.
-The UCSB campus cloud, part of the NSF Aristotle project, provides additional
-elastic capacity for the larger twins.
-\todoverify{confirm the current CSC cluster generation, since the previously
-recorded V100 and M2050 systems date from 2018}
+clusters that are open to any researcher on campus. The Pod cluster provides
+40-core CPU nodes for general-purpose computing together with fifteen
+quad-GPU NVIDIA V100 nodes connected by SXM and NVLINK, and the Knot7 cluster
+serves large parameter sweeps and jobs that exceed a local workstation. Both
+are available at no charge to campus researchers, subject to acknowledgment in
+resulting publications, and CSC staff hold backgrounds in science or
+mathematics and assist users with porting, developing, and optimizing code.
+The scale-out runs of Section~7 will use Pod to instantiate the larger twins
+and to execute the planner against them, while its GPU nodes carry the
+inference load of the agent teams alongside the departmental A100 server. The
+UCSB campus cloud, part of the NSF Aristotle project, provides additional
+elastic capacity.
 
 \subsection{Isolated environment for digital twins}
 Section~6 of the Project Description commits to holding every twin on an
