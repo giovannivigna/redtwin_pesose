@@ -1,0 +1,435 @@
+\begin{thebibliography}{10}
+
+\bibitem{action}
+{The NSF AI Institute for Agent-based Cyber Threat Intelligence and Operation
+  (ACTION)}.
+\newblock \url{https://action.ucsb.edu}, 2026.
+
+\bibitem{aghakhani2024trojanpuzzle}
+Hojjat Aghakhani, Wei Dai, Andre Manoel, Xavier Fernandes, Anant Kharkar,
+  Christopher Kruegel, Giovanni Vigna, David Evans, Benjamin Zorn, and Robert
+  Sim.
+\newblock {TrojanPuzzle}: Covertly poisoning code-suggestion models.
+\newblock In {\em IEEE Symposium on Security and Privacy (S\&P)}, 2024.
+
+\bibitem{angr}
+{angr}.
+\newblock \url{https://angr.io}, 2026.
+
+\bibitem{ansible}
+{Ansible}.
+\newblock \url{https://www.redhat.com/en/ansible-collaborative}, 2026.
+
+\bibitem{anubis}
+Ulrich Bayer, Christopher Kruegel, and Engin Kirda.
+\newblock {TTAnalyze: A Tool for Analyzing Malware}, 2006.
+
+\bibitem{minesweeper}
+Ryan Beckett, Aarti Gupta, Ratul Mahajan, and David Walker.
+\newblock A general approach to network configuration verification.
+\newblock In {\em Proceedings of the ACM SIGCOMM Conference}, 2017.
+
+\bibitem{wildextensions-dimva19}
+Aidan Beggs and Alexandros Kapravelos.
+\newblock {Wild Extensions: Discovering and Analyzing Unlisted Chrome
+  Extensions}.
+\newblock In {\em {Proceedings of the Conference on Detection of Intrusions and
+  Malware \& Vulnerability Assessment (DIMVA)}}, June 2019.
+
+\bibitem{deterlab}
+Terry Benzel.
+\newblock The science of cyber security experimentation: The {DETER} project.
+\newblock {\em Proceedings of the Annual Computer Security Applications
+  Conference (ACSAC)}, 2011.
+
+\bibitem{caldera}
+{MITRE CALDERA: A Scalable, Automated Adversary Emulation Platform}.
+\newblock \url{https://caldera.mitre.org/}, 2026.
+
+\bibitem{cartography}
+{Cartography: A Tool that Consolidates Infrastructure Assets into a Graph
+  Database}.
+\newblock \url{https://github.com/cartography-cncf/cartography}, 2026.
+
+\bibitem{mystique-CCS18}
+Quan Chen and Alexandros Kapravelos.
+\newblock Mystique: Uncovering information leakage from browser extensions.
+\newblock In {\em Proceedings of the ACM Conference on Computer and
+  Communications Security (CCS)}, 2018.
+
+\bibitem{cisansa}
+{Securing the Software Supply Chain: Recommended Practices Guide for
+  Developers}.
+\newblock U.S. Cybersecurity and Infrastructure Security Agency and U.S.
+  National Security Agency, 2022.
+
+\bibitem{gustafson2020:halucinator}
+Abraham Clements, Eric Gustafson, Tobias Scharnowski, Paul Grosen, David Fritz,
+  Christopher Kruegel, Giovanni Vigna, Saurabh Bagchi, and Mathias Payer.
+\newblock {HALucinator: Firmware Re-hosting through Abstraction Layer
+  Emulation}.
+\newblock In {\em Proceedings of the USENIX Security Symposium}, Boston, MA,
+  August 2020.
+
+\bibitem{cova10:wepawet}
+Marco Cova, Christopher Kruegel, and Giovanni Vigna.
+\newblock {Detection and Analysis of Drive-by-Download Attacks and Malicious
+  JavaScript Code}.
+\newblock In {\em Proceedings of the World Wide Web Conference (WWW)}, Raleigh,
+  NC, April 2010.
+
+\bibitem{cve2013:nginx}
+{CVE-2013-2028: nginx stack-based buffer overflow via chunked transfer
+  encoding}.
+\newblock \url{https://nvd.nist.gov/vuln/detail/CVE-2013-2028}, 2013.
+
+\bibitem{cve2019:smuggling}
+{CVE-2019-20372: nginx request smuggling via error\_page}.
+\newblock \url{https://nvd.nist.gov/vuln/detail/CVE-2019-20372}, 2019.
+
+\bibitem{cve2021:resolver}
+{CVE-2021-23017: nginx resolver off-by-one heap write}.
+\newblock \url{https://nvd.nist.gov/vuln/detail/CVE-2021-23017}, 2021.
+
+\bibitem{log4shell}
+{CVE-2021-44228 (``Log4Shell''): remote code execution in Apache Log4j}.
+\newblock \url{https://nvd.nist.gov/vuln/detail/CVE-2021-44228}, 2021.
+
+\bibitem{cve2022:mp4}
+{CVE-2022-41742: nginx ngx\_http\_mp4\_module memory disclosure and crash}.
+\newblock \url{https://nvd.nist.gov/vuln/detail/CVE-2022-41742}, 2022.
+
+\bibitem{xzbackdoor}
+{CVE-2024-3094: malicious code introduced by a maintainer into xz-utils}.
+\newblock \url{https://nvd.nist.gov/vuln/detail/CVE-2024-3094}, 2024.
+
+\bibitem{ingressnightmare}
+{CVE-2025-1974 (``IngressNightmare''): unauthenticated remote code execution in
+  the ingress-nginx admission controller}.
+\newblock \url{https://nvd.nist.gov/vuln/detail/CVE-2025-1974}, 2025.
+
+\bibitem{pentestgpt}
+Gelei Deng, Yi~Liu, V{\'i}ctor Mayoral-Vilches, Peng Liu, Yuekang Li, Yuan Xu,
+  Tianwei Zhang, Yang Liu, Martin Pinzger, and Stefan Rass.
+\newblock {PentestGPT}: Evaluating and harnessing large language models for
+  automated penetration testing.
+\newblock In {\em Proceedings of the USENIX Security Symposium}, 2024.
+
+\bibitem{ute}
+Adam Doup\'e and Zachary Smith.
+\newblock {Universal Theory of Exploitation: Synthesizing Weird Machine
+  Programs from Guarded Behavior Models}.
+\newblock \url{https://adamdoupe.com/publications/ute-tech-report.pdf}, 2026.
+
+\bibitem{zmap}
+Zakir Durumeric, Eric Wustrow, and J.~Alex Halderman.
+\newblock {ZMap}: Fast internet-wide scanning and its security applications.
+\newblock In {\em Proceedings of the USENIX Security Symposium}, Washington,
+  D.C., August 2013.
+
+\bibitem{fleischer23:actor}
+Marius Fleischer, Dipanjan Das, Priyanka Bose, Weiheng Bai, Kangjie Lu, Mathias
+  Payer, Christopher Kruegel, and Giovanni Vigna.
+\newblock {ACTOR: Action-Guided Kernel Fuzzing}.
+\newblock In {\em Proceedings of the USENIX Security Symposium}, Los Angeles,
+  USA, August 2023.
+
+\bibitem{batfish}
+Ari Fogel, Stanley Fung, Luis Pedrosa, Meg Walraed-Sullivan, Ramesh Govindan,
+  Ratul Mahajan, and Todd Millstein.
+\newblock A general approach to network configuration analysis.
+\newblock In {\em Proceedings of the USENIX Symposium on Networked Systems
+  Design and Implementation (NSDI)}, 2015.
+
+\bibitem{measuring}
+Linus Folkerts, Will Payne, Simon Inman, Philippos Giavridis, Joe Skinner, Sam
+  Deverett, James Aung, Ekin Zorer, Michael Schmatz, Mahmoud Ghanem, John
+  Wilkinson, Alan Steer, Vy~Hong, and Jessica Wang.
+\newblock {Measuring AI Agents' Progress on Multi-Step Cyber Attack Scenarios}.
+\newblock \url{https://arxiv.org/abs/2603.11214}, 2026.
+
+\bibitem{gibbs2024mango}
+Wil Gibbs, Aravind Raj, Jayakrishna~Menon Vadayath, Hui~Jun Tay, Jack Miller,
+  Arvind Ajayan, Zion Basque, Audrey Dutcher, Fan Dong, Xander Maso, Giovanni
+  Vigna, Christopher Kruegel, Adam Doup{\'e}, Yan Shoshitaishvili, and Ruoyu
+  Wang.
+\newblock Operation mango: Scalable discovery of taint-style vulnerabilities in
+  binary firmware services.
+\newblock In {\em Proceedings of the USENIX Security Symposium}, 2024.
+
+\bibitem{gustafson2019:pretender}
+Eric Gustafson, Marius Muench, Chad Spensky, Nilo Redini, Aravind Machiry,
+  Aurelien Francillon, Davide Balzarotti, Yung~Ryn Choe, Christopher Kruegel,
+  and Giovanni Vigna.
+\newblock {Toward the Analysis of Embedded Firmware Through Automated
+  Re-hosting}.
+\newblock In {\em Proceedings of the International Symposium on Research in
+  Attacks, Intrusions, and Defenses (RAID)}, Beijing, China, September 2019.
+  USENIX Association.
+
+\bibitem{istio}
+{Istio}.
+\newblock \url{https://istio.io/}, 2026.
+
+\bibitem{jahanshahi20:sqlblock}
+Rasoul Jahanshahi, Adam Doup\'e, and Manuel Egele.
+\newblock {You shall not pass: Mitigating SQL Injection Attacks on Legacy Web
+  Applications}.
+\newblock In {\em {Proceedings of the ACM Symposium on Information, Computer
+  and Communications Security (AsiaCCS)}}, 2020.
+
+\bibitem{keycloak}
+{Keycloak: Open Source Identity and Access Management}.
+\newblock \url{https://www.keycloak.org/}, 2026.
+
+\bibitem{sedbg}
+Yi~Jou Li, Zeming Yu, James~A Mattei, Ananta Soneji, Zhibo Sun, Ruoyu Wang,
+  Jaron Mink, Daniel Votipka, and Tiffany Bao.
+\newblock I can se clearly now: Investigating the effectiveness of gui-based
+  symbolic execution for software vulnerability discovery.
+\newblock In {\em Proceedings of the 2026 CHI Conference on Human Factors in
+  Computing Systems}, CHI '26, New York, NY, USA, 2026. Association for
+  Computing Machinery.
+
+\bibitem{machiry17:drchecker}
+Aravind Machiry, Chad Spensky, Jake Corina, Nick Stephens, Christopher Kruegel,
+  and Giovanni Vigna.
+\newblock {DR.CHECKER: A Soundy Analysis for Linux Kernel Drivers}.
+\newblock In {\em Proceedings of the USENIX Security Symposium}, Vancouver, BC,
+  August 2017.
+
+\bibitem{meng2026houston}
+Dongyu Meng, Fabio Gritti, Robert McLaughlin, Nicola Ruaro, Ilya Grishchenko,
+  Christopher Kruegel, and Giovanni Vigna.
+\newblock {HOUSTON}: Real-time anomaly detection of attacks against {Ethereum}
+  {DeFi} protocols.
+\newblock In {\em Proceedings of the Network and Distributed System Security
+  Symposium (NDSS)}, 2026.
+
+\bibitem{nelson25:sensai}
+Connor Nelson, Adam Doup\'e, and Yan Shoshitaishvili.
+\newblock Sensai: Large language models as applied cybersecurity tutors.
+\newblock In {\em {Proceedings of the Technical Symposium on Computer Science
+  Education (SIGCSE)}}, February 2025.
+
+\bibitem{nelson26:pwncollegefiveyears}
+Connor Nelson, Robert Wasinger, Adam Doup\'e, and Yan Shoshitaishvili.
+\newblock {Open Cybersecurity Education: Five Years of pwn.college}.
+\newblock In {\em {Proceedings of the Technical Symposium on Computer Science
+  Education (SIGCSE)}}, February 2026.
+
+\bibitem{neo4j}
+{Neo4j}.
+\newblock \url{https://neo4j.com/}, 2026.
+
+\bibitem{nginx}
+{nginx}.
+\newblock \url{https://nginx.org/}, 2026.
+
+\bibitem{nginxsrc}
+{nginx source repository}.
+\newblock \url{https://github.com/nginx/nginx}, 2026.
+
+\bibitem{openssf}
+{Open Source Security Foundation Best Practices Badge Program}.
+\newblock \url{https://www.bestpractices.dev/}, 2026.
+
+\bibitem{osquery}
+{osquery: SQL-powered Operating System Instrumentation and Analytics}.
+\newblock \url{https://osquery.io/}, 2026.
+
+\bibitem{mulval}
+Xinming Ou, Sudhakar Govindavajhala, and Andrew~W. Appel.
+\newblock {MulVAL}: A logic-based network security analyzer.
+\newblock In {\em Proceedings of the USENIX Security Symposium}, 2005.
+
+\bibitem{chainreactor}
+Giulio Pasquale, Ilya Grishchenko, Riccardo Iesari, Gabriel Pizarro, Lorenzo
+  Cavallaro, Christopher Kruegel, and Giovanni Vigna.
+\newblock {ChainReactor}: Automated privilege escalation chain discovery via
+  {AI} planning.
+\newblock In {\em Proceedings of the USENIX Security Symposium}, Philadelphia,
+  PA, August 2024.
+
+\bibitem{pletinckx2025proxy}
+Stijn Pletinckx, Christopher Kruegel, and Giovanni Vigna.
+\newblock A large-scale measurement study of the {PROXY} protocol and its
+  security implications.
+\newblock In {\em Proceedings of the Network and Distributed System Security
+  Symposium (NDSS)}, 2025.
+
+\bibitem{postgresql}
+{PostgreSQL: The World's Most Advanced Open Source Relational Database}.
+\newblock \url{https://www.postgresql.org/}, 2026.
+
+\bibitem{puppet}
+{puppet}.
+\newblock \url{https://www.puppet.com/}, 2026.
+
+\bibitem{qdrant}
+{Qdrant: High-Performance Vector Search at Scale}.
+\newblock \url{https://qdrant.tech/}, 2026.
+
+\bibitem{qemu}
+{Qemu}.
+\newblock \url{https://www.qemu.org/}, 2026.
+
+\bibitem{rabbitmq}
+{RabbitMQ: One broker to queue them all}.
+\newblock \url{https://www.rabbitmq.com/}, 2026.
+
+\bibitem{redini20:karonte}
+Nilo Redini, Aravind Machiry, Ruoyu Wang, Chad Spensky, Andrea Continella, Yan
+  Shoshitaishvili, Christopher Kruegel, and Giovanni Vigna.
+\newblock {KARONTE: Detecting Insecure Multi-binary Interactions in Embedded
+  Firmware}.
+\newblock In {\em Proceedings of the IEEE Symposium on Security and Privacy},
+  San Francisco, CA, May 2020.
+
+\bibitem{ruaro21:syml}
+Nicola Ruaro, Lukas Dresel, Kyle Zeng, Tiffany Bao, Mario Polino, Andrea
+  Continella, Stefano Zanero, Christopher Kruegel, and Giovanni Vigna.
+\newblock {SyML: Guiding Symbolic Execution Toward Vulnerable States Through
+  Pattern Learning}.
+\newblock In {\em Proceedings of the International Symposium on Research in
+  Attacks, Intrusions and Defenses (RAID)}, San Sebastian, Spain, October 2021.
+
+\bibitem{ruaro24crush}
+Nicola Ruaro, Fabio Gritti, Robert McLaughlin, Ilya Grishchenko, Christopher
+  Kruegel, and Giovanni Vigna.
+\newblock {Not your Type! Detecting Storage Collision Vulnerabilities in
+  Ethereum Smart Contracts}.
+\newblock In {\em Proceedings of the Network and Distributed Systems Security
+  Symposium (NDSS)}, San Diego, USA, February 2024.
+
+\bibitem{ruaro25greed}
+Nicola Ruaro, Fabio Gritti, Robert McLaughlin, Dongyu Meng, Ilya Grishchenko,
+  Christopher Kruegel, and Giovanni Vigna.
+\newblock {A History of Greed: Practical Symbolic Execution for Ethereum Smart
+  Contracts}.
+\newblock In {\em International Conference on Detection of Intrusions and
+  Malware, and Vulnerability Assessment (DIMVA)}, pages 275--296, Graz,
+  Austria, July 2025. Springer.
+
+\bibitem{ruaro25:approvals}
+Nicola Ruaro, Fabio Gritti, Dongyu Meng, Robert McLaughlin, Ilya Grishchenko,
+  Christopher Kruegel, and Giovanni Vigna.
+\newblock {Approve Once, Regret Forever: On the Exploitation of Ethereum’s
+  Approve-TransferFrom Ecosystem}.
+\newblock In {\em Proceedings of the USENIX Security Symposium}, Seattle, WA,
+  August 2025.
+
+\bibitem{scharnowski22:fuzzware}
+Tobias Scharnowski, Nils Bars, Moritz Schloegel, Eric Gustafson, Marius Muench,
+  Giovanni Vigna, Christopher Kruegel, Thorsten Holz, and Ali Abbasi.
+\newblock {Fuzzware: Using Precise MMIO Modeling for Effective Firmware
+  Fuzzing}.
+\newblock In {\em Proceedings of the USENIX Security Symposium}, Boston, USA,
+  August 2022.
+
+\bibitem{artiphishell}
+{Shellphish}.
+\newblock Artiphishell: An agentic cyber reasoning system for the {DARPA}
+  {AIxCC} competition.
+\newblock \url{https://support.shellphish.net/aixcc/team/}, 2024.
+
+\bibitem{attackgraphs}
+Oleg Sheyner, Joshua Haines, Somesh Jha, Richard Lippmann, and Jeannette Wing.
+\newblock Automated generation and analysis of attack graphs.
+\newblock In {\em Proceedings of the IEEE Symposium on Research in Security and
+  Privacy}, 2002.
+
+\bibitem{shoshitaishvili26:luminarium}
+Yan Shoshitaishvili, Adam Doup\'e, and Connor Nelson.
+\newblock {The Linux Luminarium: Learning Linux by Leveraging Lightweight Labs
+  and Ludicrous Lessons}.
+\newblock In {\em {Proceedings of the Technical Symposium on Computer Science
+  Education (SIGCSE)}}, February 2026.
+
+\bibitem{shoshitaishvili2016state}
+Yan Shoshitaishvili, Ruoyu Wang, Christopher Salls, Nick Stephens, Mario
+  Polino, Audrey Dutcher, John Grosen, Siji Feng, Christophe Hauser,
+  Christopher Kruegel, and Giovanni Vigna.
+\newblock {SoK: (State of) The Art of War: Offensive Techniques in Binary
+  Analysis}.
+\newblock In {\em IEEE Symposium on Security and Privacy}, 2016.
+
+\bibitem{DeSilva2024GuideEnricher}
+Ravindu~De Silva, Wenbo Guo, Nicola Ruaro, Ilya Grishchenko, Christopher
+  Kruegel, and Giovanni Vigna.
+\newblock {GuideEnricher: Protecting the Anonymity of Ethereum Mixing Service
+  Users with Deep Reinforcement Learning}.
+\newblock In {\em Proceedings of the USENIX Security Symposium}, Philadelphia,
+  PA, August 2024.
+
+\bibitem{slsa}
+{SLSA: Supply-chain Levels for Software Artifacts}.
+\newblock \url{https://slsa.dev/}, 2026.
+
+\bibitem{spensky2021:Conware}
+Chad Spensky, Aravind Machiry, Nilo Redini, Colin Unger, Graham Foster, Evan
+  Blasband, Hamed Okhravi, Christopher Kruegel, and Giovanni Vigna.
+\newblock {Conware: Automated Modeling of Hardware Peripherals}.
+\newblock In {\em Proceedings of the ACM Asia Conference on Computer and
+  Communications Security (AsiaCCS)}, Hong Kong, China, June 2021.
+
+\bibitem{extbloat-www2019}
+Oleksii Starov, Pierre Laperdrix, Alexandros Kapravelos, and Nick Nikiforakis.
+\newblock {Unnecessarily Identifiable: Quantifying the fingerprintability of
+  browser extensions due to bloat}.
+\newblock In {\em {Proceedings of The Web Conference}}, May 2019.
+
+\bibitem{comparing}
+Mattia Tantardini, Francesca Ieva, Lucia Tajoli, and Carlo Piccardi.
+\newblock Comparing methods for comparing networks.
+\newblock {\em Scientific Reports}, 9(1):17557, 2019.
+
+\bibitem{cloakx-sec19}
+Erik Trickel, Oleksii Starov, Alexandros Kapravelos, Nick Nikiforakis, and Adam
+  Doupe.
+\newblock {Everyone is Different: Client-side Diversification for Defending
+  Against Extension Fingerprinting}.
+\newblock In {\em {Proceedings of the USENIX Security Symposium}}, August 2019.
+
+\bibitem{orangetsai}
+Orange Tsai.
+\newblock {Breaking Parser Logic: Take Your Path Normalization Off and Pop
+  0days Out}.
+\newblock In {\em Black Hat USA}, 2018.
+
+\bibitem{weaviate}
+{Weaviate}.
+\newblock \url{https://weaviate.io/}, 2026.
+
+\bibitem{achilles}
+Ali Zand, Amir Houmansadr, Giovanni Vigna, Richard Kemmerer, and Christopher
+  Kruegel.
+\newblock Know your achilles' heel: Automatic detection of network critical
+  services.
+\newblock In {\em Proceedings of the Annual Computer Security Applications
+  Conference (ACSAC)}, 2015.
+
+\bibitem{zeng2026ropbot}
+Kyle Zeng, Moritz Schloegel, Christopher Salls, Adam Doup{\'e}, Ruoyu Wang, Yan
+  Shoshitaishvili, and Tiffany Bao.
+\newblock Ropbot: Reimagining code reuse attack synthesis.
+\newblock In {\em Proceedings of the Network and Distributed System Security
+  (NDSS) Symposium}. Internet Society, February 2026.
+
+\bibitem{zgrab}
+{ZGrab 2.0: Application-Layer Scanner}.
+\newblock \url{https://github.com/zmap/zgrab2}, 2026.
+
+\bibitem{cybench}
+Andy~K. Zhang, Neil Perry, Riya Dulepet, Joey Ji, Celeste Menders, Justin~W.
+  Lin, Eliot Jones, Gashon Hussein, Samantha Liu, Donovan Jasper, et~al.
+\newblock {Cybench}: A framework for evaluating cybersecurity capabilities and
+  risks of language models.
+\newblock In {\em Proceedings of the International Conference on Learning
+  Representations (ICLR)}, 2025.
+
+\bibitem{zmapsrc}
+{The ZMap Project: ZMap network scanner}.
+\newblock \url{https://github.com/zmap/zmap}, 2026.
+
+\end{thebibliography}

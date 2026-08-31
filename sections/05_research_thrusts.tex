@@ -311,6 +311,18 @@ under the process of Section~\ref{sec:buildtest}. Where a defect is configuratio
 deliverable is detection tooling and documentation, since there is no patch to
 submit.
 
+\paragraph{Memory-safe languages.}
+Rewriting nginx is not serviceable: the code base is over twenty years old, it
+is deployed at a scale that makes silent behavioral divergence unacceptable,
+and a rewrite would consume the scarce maintainer capacity of
+Section~\ref{sec:ecosystem}. We therefore target the boundary where new code
+is written. Modules compile into the core address space with core privileges,
+so writing one in a memory-safe language removes a defect class from the
+least-reviewed part of the ecosystem, and we will report on the practicality
+of that boundary. For the existing C, sanitizer-instrumented fuzzing and
+hardened build configurations remain the tractable measures. \sysname itself
+is implemented in memory-safe languages.
+
 \paragraph{Composing multi-step attacks.}
 The workflow will instantiate a clean version of the twin, and the attack
 planning will have access to the knowledge base, so that the planner reasons

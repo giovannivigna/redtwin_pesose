@@ -1,0 +1,285 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{measuring}
+\citation{postgresql}
+\citation{nginx}
+\citation{keycloak}
+\citation{rabbitmq}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{2}{Introduction}{section.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{A motivating scenario.}{2}{paragraph*.1}\protected@file@percent }
+\citation{nginx}
+\citation{nginxsrc}
+\citation{zmap}
+\citation{zmapsrc}
+\citation{nginx}
+\citation{nginxsrc}
+\citation{zmap}
+\citation{zmapsrc}
+\citation{nginx}
+\citation{nginxsrc}
+\citation{zmap}
+\citation{zmapsrc}
+\citation{zgrab}
+\@writefile{toc}{\contentsline {paragraph}{Alignment with PESOSE Track~3 and contributions.}{3}{paragraph*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}The Target Open-Source Ecosystem}{3}{section.2}\protected@file@percent }
+\newlabel{sec:ecosystem}{{2}{3}{The Target Open-Source Ecosystem}{section.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{nginx: the trust boundary of open-source infrastructure.}{3}{paragraph*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{ZMap: discovering what is actually running.}{3}{paragraph*.4}\protected@file@percent }
+\citation{postgresql}
+\citation{keycloak}
+\citation{rabbitmq}
+\citation{istio}
+\citation{cve2013:nginx}
+\citation{cve2021:resolver}
+\citation{cve2022:mp4}
+\@writefile{toc}{\contentsline {paragraph}{The ecosystem view.}{4}{paragraph*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Societal, National, and Economic Impact}{4}{section.3}\protected@file@percent }
+\newlabel{sec:impact}{{3}{4}{Societal, National, and Economic Impact}{section.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{What depends on nginx.}{4}{paragraph*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{What depends on ZMap.}{4}{paragraph*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Economic and national significance.}{4}{paragraph*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Measures of success.}{4}{paragraph*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Targeted Vulnerabilities and Risks}{4}{section.4}\protected@file@percent }
+\newlabel{sec:landscape}{{4}{4}{Targeted Vulnerabilities and Risks}{section.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{Memory-safety defects in C network services.}{4}{paragraph*.10}\protected@file@percent }
+\citation{cve2019:smuggling}
+\citation{orangetsai}
+\citation{log4shell}
+\citation{cisansa}
+\citation{openssf}
+\citation{xzbackdoor}
+\citation{ingressnightmare}
+\citation{cve2021:resolver}
+\citation{cve2019:smuggling}
+\citation{orangetsai}
+\@writefile{toc}{\contentsline {paragraph}{Configuration-induced vulnerabilities.}{5}{paragraph*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Socio-technical risks.}{5}{paragraph*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Prior incidents and threat model.}{5}{paragraph*.13}\protected@file@percent }
+\citation{neo4j}
+\citation{qdrant}
+\citation{weaviate}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Technical Approach and Research Thrusts}{6}{section.5}\protected@file@percent }
+\newlabel{sec:approach}{{5}{6}{Technical Approach and Research Thrusts}{section.5}{}}
+\newlabel{sec:thrusts}{{5}{6}{Technical Approach and Research Thrusts}{section.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Overview of the RedTwin\xspace  framework. Knowledge Base Agents combine documentation with human expertise to build a Knowledge Base, driving an Observation Plan that deploys Observer Agents, which collect dynamic information without disrupting operations and feed it back. Replication Agents construct a digital twin from the Knowledge Base, and Red Team Agents continuously assess that twin, producing findings that are verified and remediated on the target infrastructure.}}{6}{figure.1}\protected@file@percent }
+\newlabel{fig:overview}{{1}{6}{Overview of the \sysname framework. Knowledge Base Agents combine documentation with human expertise to build a Knowledge Base, driving an Observation Plan that deploys Observer Agents, which collect dynamic information without disrupting operations and feed it back. Replication Agents construct a digital twin from the Knowledge Base, and Red Team Agents continuously assess that twin, producing findings that are verified and remediated on the target infrastructure}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Thrust 1: Capturing Open-Source Infrastructure Configurations}{6}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:thrust1}{{5.1}{6}{Thrust 1: Capturing Open-Source Infrastructure Configurations}{subsection.5.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Knowledge base design.}{6}{paragraph*.14}\protected@file@percent }
+\citation{istio}
+\citation{ansible}
+\citation{puppet}
+\citation{achilles}
+\citation{zmap}
+\citation{zgrab}
+\citation{rabbitmq}
+\@writefile{toc}{\contentsline {paragraph}{Observation techniques.}{7}{paragraph*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Safe active discovery: extending ZMap.}{7}{paragraph*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Observation planning and coverage.}{7}{paragraph*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Supply chain and the human loop.}{7}{paragraph*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Thrust 2: Replicating Computing Infrastructures}{7}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:thrust2}{{5.2}{7}{Thrust 2: Replicating Computing Infrastructures}{subsection.5.2}{}}
+\citation{comparing}
+\citation{batfish}
+\citation{minesweeper}
+\citation{attackgraphs}
+\citation{mulval}
+\@writefile{toc}{\contentsline {paragraph}{Insight 1: infrastructures replicate for load.}{8}{paragraph*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Insight 2: services operate in patterns.}{8}{paragraph*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Insight 3: data is as relevant as code.}{8}{paragraph*.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Reconciling sanitization with authorization.}{8}{paragraph*.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Making fidelity quantitative.}{8}{paragraph*.23}\protected@file@percent }
+\citation{gustafson2019:pretender}
+\citation{gustafson2020:halucinator}
+\citation{spensky2021:Conware}
+\citation{scharnowski22:fuzzware}
+\citation{qemu}
+\citation{fleischer23:actor}
+\citation{scharnowski22:fuzzware}
+\citation{machiry17:drchecker}
+\citation{ruaro21:syml}
+\citation{redini20:karonte}
+\citation{artiphishell}
+\citation{fleischer23:actor}
+\citation{machiry17:drchecker}
+\@writefile{toc}{\contentsline {paragraph}{What soundness can and cannot mean here.}{9}{paragraph*.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Components that cannot be replicated.}{9}{paragraph*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Thrust 3: Analyzing the Security Posture of Digital Twins}{9}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:thrust3}{{5.3}{9}{Thrust 3: Analyzing the Security Posture of Digital Twins}{subsection.5.3}{}}
+\citation{chainreactor}
+\citation{ute}
+\@writefile{toc}{\contentsline {paragraph}{Hardening nginx.}{10}{paragraph*.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Memory-safe languages.}{10}{paragraph*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Composing multi-step attacks.}{10}{paragraph*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{What ``continuous'' costs.}{10}{paragraph*.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{From findings to prevention, detection, and recovery.}{10}{paragraph*.30}\protected@file@percent }
+\citation{cisansa}
+\citation{openssf}
+\citation{slsa}
+\citation{zmapsrc}
+\citation{measuring}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Build and Test Infrastructure, Quality Control, and Disclosure}{11}{section.6}\protected@file@percent }
+\newlabel{sec:buildtest}{{6}{11}{Build and Test Infrastructure, Quality Control, and Disclosure}{section.6}{}}
+\@writefile{toc}{\contentsline {paragraph}{Build and test infrastructure.}{11}{paragraph*.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Quality control and security of new content.}{11}{paragraph*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Licensing and upstream contribution.}{11}{paragraph*.33}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Responsible disclosure and dual use.}{11}{paragraph*.34}\protected@file@percent }
+\citation{action}
+\gdef \LT@i {\LT@entry 
+    {1}{262.36668pt}\LT@entry 
+    {1}{201.29623pt}}
+\citation{zmap}
+\citation{osquery}
+\citation{cartography}
+\citation{batfish}
+\citation{chainreactor}
+\citation{mulval}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Evaluation Plan}{12}{section.7}\protected@file@percent }
+\newlabel{sec:evaluation}{{7}{12}{Evaluation Plan}{section.7}{}}
+\@writefile{toc}{\contentsline {paragraph}{Reference infrastructures.}{12}{paragraph*.35}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Metrics and targets.}{12}{paragraph*.36}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Baselines and ablations.}{12}{paragraph*.37}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Validation with existing users.}{12}{paragraph*.38}\protected@file@percent }
+\gdef \LT@ii {\LT@entry 
+    {1}{32.18414pt}\LT@entry 
+    {1}{233.4804pt}\LT@entry 
+    {1}{184.85309pt}}
+\@writefile{toc}{\contentsline {paragraph}{Robustness to the evolution of language models.}{13}{paragraph*.39}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Milestones and Timeline}{13}{section.8}\protected@file@percent }
+\newlabel{sec:timeline}{{8}{13}{Milestones and Timeline}{section.8}{}}
+\citation{caldera}
+\citation{batfish}
+\citation{minesweeper}
+\citation{attackgraphs}
+\citation{mulval}
+\citation{zmap}
+\citation{zgrab}
+\citation{osquery}
+\citation{cartography}
+\citation{deterlab}
+\citation{action}
+\citation{pentestgpt}
+\citation{cybench}
+\citation{measuring}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Related Work}{14}{section.9}\protected@file@percent }
+\newlabel{sec:relwork}{{9}{14}{Related Work}{section.9}{}}
+\@writefile{toc}{\contentsline {paragraph}{Breach and attack simulation.}{14}{paragraph*.40}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Network configuration verification and attack graphs.}{14}{paragraph*.41}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Discovery, testbeds, and LLM agents for security.}{14}{paragraph*.42}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Management Plan and Qualifications of the PIs}{14}{section.10}\protected@file@percent }
+\newlabel{sec:pis}{{10}{14}{Management Plan and Qualifications of the PIs}{section.10}{}}
+\@writefile{toc}{\contentsline {paragraph}{Organization.}{14}{paragraph*.43}\protected@file@percent }
+\citation{achilles}
+\citation{chainreactor}
+\citation{nelson26:pwncollegefiveyears}
+\citation{shoshitaishvili26:luminarium}
+\citation{nelson25:sensai}
+\@writefile{toc}{\contentsline {paragraph}{Qualifications.}{15}{paragraph*.44}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}Broader Impacts}{15}{section.11}\protected@file@percent }
+\newlabel{sec:broader}{{11}{15}{Broader Impacts}{section.11}{}}
+\@writefile{toc}{\contentsline {paragraph}{Education and mentoring.}{15}{paragraph*.45}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Community outreach: the twinCTF competition.}{15}{paragraph*.46}\protected@file@percent }
+\citation{anubis}
+\citation{cova10:wepawet}
+\citation{angr}
+\citation{shoshitaishvili2016state}
+\citation{fleischer23:actor}
+\citation{chainreactor}
+\citation{aghakhani2024trojanpuzzle}
+\citation{gibbs2024mango}
+\citation{pletinckx2025proxy}
+\citation{action}
+\citation{ruaro24crush}
+\citation{DeSilva2024GuideEnricher}
+\citation{ruaro25:approvals}
+\citation{ruaro25greed}
+\citation{meng2026houston}
+\citation{mystique-CCS18}
+\citation{wildextensions-dimva19}
+\citation{extbloat-www2019}
+\citation{cloakx-sec19}
+\citation{jahanshahi20:sqlblock}
+\citation{sedbg}
+\citation{zeng2026ropbot}
+\@writefile{toc}{\contentsline {paragraph}{Technology transfer, open source, and dissemination.}{16}{paragraph*.47}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {12}Results from Prior NSF Support}{16}{section.12}\protected@file@percent }
+\newlabel{sec:prior}{{12}{16}{Results from Prior NSF Support}{section.12}{}}
+\bibstyle{plain}
+\bibdata{references}
+\bibcite{action}{1}
+\bibcite{aghakhani2024trojanpuzzle}{2}
+\bibcite{angr}{3}
+\bibcite{ansible}{4}
+\bibcite{anubis}{5}
+\bibcite{minesweeper}{6}
+\bibcite{wildextensions-dimva19}{7}
+\bibcite{deterlab}{8}
+\bibcite{caldera}{9}
+\bibcite{cartography}{10}
+\bibcite{mystique-CCS18}{11}
+\bibcite{cisansa}{12}
+\bibcite{gustafson2020:halucinator}{13}
+\bibcite{cova10:wepawet}{14}
+\bibcite{cve2013:nginx}{15}
+\bibcite{cve2019:smuggling}{16}
+\bibcite{cve2021:resolver}{17}
+\bibcite{log4shell}{18}
+\bibcite{cve2022:mp4}{19}
+\bibcite{xzbackdoor}{20}
+\bibcite{ingressnightmare}{21}
+\bibcite{pentestgpt}{22}
+\bibcite{ute}{23}
+\bibcite{zmap}{24}
+\bibcite{fleischer23:actor}{25}
+\bibcite{batfish}{26}
+\bibcite{measuring}{27}
+\bibcite{gibbs2024mango}{28}
+\bibcite{gustafson2019:pretender}{29}
+\bibcite{istio}{30}
+\bibcite{jahanshahi20:sqlblock}{31}
+\bibcite{keycloak}{32}
+\bibcite{sedbg}{33}
+\bibcite{machiry17:drchecker}{34}
+\bibcite{meng2026houston}{35}
+\bibcite{nelson25:sensai}{36}
+\bibcite{nelson26:pwncollegefiveyears}{37}
+\bibcite{neo4j}{38}
+\bibcite{nginx}{39}
+\bibcite{nginxsrc}{40}
+\bibcite{openssf}{41}
+\bibcite{osquery}{42}
+\bibcite{mulval}{43}
+\bibcite{chainreactor}{44}
+\bibcite{pletinckx2025proxy}{45}
+\bibcite{postgresql}{46}
+\bibcite{puppet}{47}
+\bibcite{qdrant}{48}
+\bibcite{qemu}{49}
+\bibcite{rabbitmq}{50}
+\bibcite{redini20:karonte}{51}
+\bibcite{ruaro21:syml}{52}
+\bibcite{ruaro24crush}{53}
+\bibcite{ruaro25greed}{54}
+\bibcite{ruaro25:approvals}{55}
+\bibcite{scharnowski22:fuzzware}{56}
+\bibcite{artiphishell}{57}
+\bibcite{attackgraphs}{58}
+\bibcite{shoshitaishvili26:luminarium}{59}
+\bibcite{shoshitaishvili2016state}{60}
+\bibcite{DeSilva2024GuideEnricher}{61}
+\bibcite{slsa}{62}
+\bibcite{spensky2021:Conware}{63}
+\bibcite{extbloat-www2019}{64}
+\bibcite{comparing}{65}
+\bibcite{cloakx-sec19}{66}
+\bibcite{orangetsai}{67}
+\bibcite{weaviate}{68}
+\bibcite{achilles}{69}
+\bibcite{zeng2026ropbot}{70}
+\bibcite{zgrab}{71}
+\bibcite{cybench}{72}
+\bibcite{zmapsrc}{73}
+\gdef \@abspage@last{21}

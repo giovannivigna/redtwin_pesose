@@ -1,7 +1,10 @@
 # RedTwin -- NSF 26-506 (PESOSE) Track 3
-.PHONY: all check clean facilities mentoring
 
-all: main.pdf facilities mentoring
+.PHONY: all check docs clean
+
+# `make` builds the proposal only. The supplementary documents are built on
+# request, with `make docs`.
+all: main.pdf
 
 main.pdf: main.tex references.bib $(wildcard sections/*.tex) figures/redtwin_architecture.pdf
 	pdflatex -interaction=nonstopmode main.tex
@@ -12,18 +15,22 @@ main.pdf: main.tex references.bib $(wildcard sections/*.tex) figures/redtwin_arc
 check: main.pdf
 	@python3 check.py
 
-facilities: documents/facilities.pdf
+# ---- Supplementary documents (Facilities, Mentoring Plan, ...) -------------
+# On demand: `make docs`, or `make documents/facilities.pdf` for just one.
+# Every .tex in documents/ is a standalone document, so new ones are picked up
+# automatically. The .docx and the Research.gov DMP print are maintained
+# outside LaTeX and are not built here.
+DOC_TEX := $(wildcard documents/*.tex)
+DOC_PDF := $(DOC_TEX:.tex=.pdf)
+LATEX   := pdflatex -interaction=nonstopmode -halt-on-error
 
-documents/facilities.pdf: documents/facilities.tex
-	cd documents && pdflatex -interaction=nonstopmode facilities.tex
-	cd documents && pdflatex -interaction=nonstopmode facilities.tex
+docs: $(DOC_PDF)
 
-mentoring: documents/mentoring_plan.pdf
-
-documents/mentoring_plan.pdf: documents/mentoring_plan.tex
-	cd documents && pdflatex -interaction=nonstopmode mentoring_plan.tex
+# Second pass only when LaTeX asks for one, so the common case stays fast.
+documents/%.pdf: documents/%.tex
+	cd documents && $(LATEX) $*.tex
+	@if grep -qs 'Rerun to get' documents/$*.log; then cd documents && $(LATEX) $*.tex; fi
 
 clean:
 	rm -f main.aux main.bbl main.blg main.log main.out
-	rm -f documents/facilities.aux documents/facilities.log documents/facilities.out
-	rm -f documents/mentoring_plan.aux documents/mentoring_plan.log documents/mentoring_plan.out
+	rm -f documents/*.aux documents/*.log documents/*.out
